@@ -1,0 +1,623 @@
+"DOTAAbilities"
+{
+	// "ability_dota2x_reimu01"
+	// {
+	// 	"BaseClass"	"ability_datadriven"
+	// 	"AbilityTextureName"	"custom/ability_dota2x_reimu01"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"MaxLevel"	"4"
+	// 	"AbilityCastPoint"	"0.1"
+	// 	"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_3"
+	// 	"AbilityCooldown"	"14 13 12 11"
+	// 	"AbilityManaCost"	"90 105 125 140"
+	// 	// Stats
+	// 	// ----------------------------------------------------------------
+	// 	"AbilityCastRange"	"650"
+	// 	"AOERadius"	"%radius"
+	// 	"ID"	"1999"
+	// 	"precache"
+	// 	{
+	// 		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+	// 		"particle"	"particles/heroes/reimu/reimu_01_effect_fire.vpcf"
+	// 		"particle"	"particles/thd2/heroes/reimu/reimu_01_effect_b.vpcf"
+	// 	}
+	// 	"OnSpellStart"
+	// 	{
+	// 		"RunScript"
+	// 		{
+	// 			"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+	// 			"Function"	"OnReimu01SpellStart"
+	// 			"Target"	"POINT"
+	// 			"StunDuration"	"%stun_duration"
+	// 			"DamageDecrease"	"%damage_decrease"
+	// 			"Radius"	"%radius"
+	// 		}
+	// 	}
+	// 	"AbilitySpecial"
+	// 	{
+	// 		"01"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"stun_duration"	"0.5"
+	// 		}
+	// 		"02"
+	// 		{
+	// 			"var_type"	"FIELD_FLOAT"
+	// 			"damage_decrease"	"0.33"
+	// 		}
+	// 		"03"
+	// 		{
+	// 			"var_type"	"FIELD_INTEGER"
+	// 			"radius"	"200"
+	// 		}
+	// 	}
+	// 	"AbilityDamage"	"125 205 270 320"
+	// }
+	"ability_dota2x_reimu01"//新的灵梦球 By Alice
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_dota2x_reimu01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"4"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_3"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCooldown"	"12"
+		"AbilityManaCost"	"100 120 140 160"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityCastRange"	"600 700 800 900"
+		"AOERadius"	"%radius"
+		"ID"	"1999"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+			"particle"	"particles/heroes/reimu/reimu_01_effect_fire.vpcf"
+			"particle"	"particles/thd2/heroes/reimu/reimu_01_effect_b.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+				"Function"	"OnReimu01SpellStart"
+				"Target"	"POINT"
+				"BounceTime" "%bounce_time"
+				"DamageFollowPercentage"	"%damage_follow_percentage"
+				"StunDuration"	"%stun_duration"
+				"StunDurationFollow"	"%stun_duration_follow"
+				"Radius"	"%radius"
+				"FirstDamage"	"%first_damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_reimu01_ball"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+						"Function"		"OnReimu01Destory"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounce_time"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"first_damage"			"125 205 270 320"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.45"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage_follow_percentage"	"33"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration_follow"	"0.4"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"200"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"range"	"600 700 800 900"
+			}
+		}
+	}
+
+	"ability_dota2x_reimu02"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_dota2x_reimu02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"MaxLevel"	"4"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"10 9 8 7"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"120 140 160 180"
+		"ID"	"2000"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+				"Function"	"OnReimu02SpellStart"
+				"Caster"	"CASTER"
+			}
+			"DelayedAction"
+			{
+				"Delay"	"0"
+				"Action"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_dota2x_reimu02_think_interval"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dota2x_reimu02_think_interval"
+			{
+				"RemoveOnDeath"	"0"
+				"IsHidden"	"0"
+				"Duration"	"1.5"
+				"ThinkInterval"	"0.03"
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+						"Function"	"OnReimu02OnLightStart"
+						"Caster"	"CASTER"
+					}
+				}
+			}
+		
+		}
+		"AbilityDamage"	"70 80 90 100"
+	}
+
+	"ability_dota2x_reimu03"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_dota2x_reimu03"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES"
+		"MaxLevel"	"4"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"12"
+		"AbilityManaCost"	"50 75 100 125"
+		"HasScepterUpgrade"			"1"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityCastRange"	"600 700 800 900"
+		"ID"	"2001"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"particle"	"particles/thd2/heroes/reimu/reimu_03_effect.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_WitchDoctor.Voodoo_Restoration"
+				"Target"	"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+				"Function"	"OnReimu03SpellStart"
+				"Caster"	"CASTER"
+				"Target"	"TARGET"
+				"Duration"	"%ability_duration"
+			}
+			// "ApplyModifier"
+			// {
+			// 	"Target"	"TARGET"
+			// 	"ModifierName"	"modifier_ability_dota2x_reimu03_effect"
+			// }
+		}
+		"Modifiers"
+		{
+			"modifier_ability_dota2x_reimu03_armor"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"-100"
+					// "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"999999"
+				}
+			}
+			"modifier_ability_dota2x_reimu03_effect"
+			{
+				"Duration"	"%ability_duration"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/thd2/heroes/reimu/reimu_03_effect.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+				}
+			}
+			"modifier_ability_dota2x_reimu03_slow"
+			{
+				"Duration"	"%ability_duration"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%scepter_slowdown"
+				}
+			}
+			"modifier_reimu03_flag"
+			{
+				"Duration"	"%ability_duration"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"ability_duration"	"2 3 4 5"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"scepter_slowdown" "-40"
+				"RequiresScepter"			"1"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"range"	"600 700 800 900"
+			}
+		}
+	}
+
+	"ability_dota2x_reimu04"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_dota2x_reimu04"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_3"
+		"AbilityCooldown"	"115 100 85"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"200 300 400"
+		"ID"	"2002"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_reimu_sounds.vsndevts"
+			"particle"	"particles/thd2/heroes/reimu/reimu_04_effect.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dazzle.Shallow_Grave"
+				"Target"	"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Voice_Thdots_Reimu.AbilityReimu04"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+				"Function"	"OnReimu04SpellStart"
+				"Ability_Duration"	"%ability_duration"
+				"Caster"	"CASTER"
+			}
+		}		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"ability_duration"	"3 4 5"
+			}
+		}
+		"AbilityDamage"	"240 320 400"
+	}
+
+	"ability_dota2x_reimu04_unit"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_dota2x_reimu04"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"	"3"
+		"AbilityCastPoint"	"0.0"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"	"0"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"0"
+		"ID"	"20002"
+		"OnSpellStart"
+		{
+			"DelayedAction"
+			{
+				"Delay"	"0"
+				"Action"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_dota2x_reimu04_think_interval"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dota2x_reimu04_think_interval"
+			{
+				"RemoveOnDeath"	"0"
+				"IsHidden"	"0"
+				"Duration"	"%ability_duration"
+				"ThinkInterval"	"0.4"
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+						"Function"	"OnReimu04SpellThink"
+						"Caster"	"CASTER"
+						"Ability_Duration"	"%ability_duration"
+						"Stun_Duration"	"%stun_duration"
+						"Radius"	"%radius"
+						"Damage_Count"	"%damage_count"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"ability_duration"	"3 4 5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"600 600 600"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.1"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_count"	"3 4 5"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"root_duration"	"0.1"
+			}
+		}
+		"AbilityDamage"	"240 320 400"
+	}
+
+	"ability_dota2x_reimuEx"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"scripts/vscripts/abilities/abilityReimu.lua"
+		"AbilityTextureName"	"alchemist_goblins_greed"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// Stats
+		// ----------------------------------------------------------------
+		"MaxLevel"	"1"	
+		"precache"
+		{
+			"particle"	"particles/econ/items/windrunner/windrunner_cape_cascade/windrunner_windrun_cascade.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"give_gold_interval"	"12"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"give_gold_amount"		"4"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"give_gold_kill"		"50"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_reimu_1"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_reimu_3"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Dummy Unit
+	//=================================================================================================================
+	"ability_reimu02_dummy_unit"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/rubick_empty1"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/skadi_projectile_copy.vpcf"
+		}
+		"Modifiers"
+		{
+			"reimu02_dummy_unit"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/items2_fx/skadi_projectile_copy.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"follow_origin"
+							"CASTER"	"follow_origin"
+							"CASTER"	"follow_origin"
+							"CASTER"	"follow_origin"
+						}
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNTARGETABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"	"1"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Dummy Unit
+	//=================================================================================================================
+	"ability_reimu04_dummy_unit"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/rubick_empty1"
+		"Modifiers"
+		{
+			"dummy_unit"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"	
+					"MODIFIER_STATE_UNTARGETABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"	"1"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,483 @@
+"DOTAAbilities"
+{
+	// 涉及厄土的技能需要用到的数值
+	// 基础数据存放于一技能中。
+	// 特别的，大招的厄土半径自定义，存放于四技能中；「贫乏神式污染」 （在lua程序中在天生技能与二技能实现）持续时间为一半，数据更改在lua程序中实现。
+	"ability_thdots_shion_ex"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_ex"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		//"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel" 						"1"
+		"RequiredLevel"					"%levelsBetweenUpgrades"
+		"LevelsBetweenUpgrades"			"%levelsBetweenUpgrades"
+		//"AbilityCastPoint"			"0.4"
+		//"AbilityCooldown"				"10 8 6 4"
+		//"AbilityManaCost"				"60 70 80 90"
+		//"AbilityCastRange"			"900"
+
+		"precache"
+		{
+			"particle" "models/shion/shion_fx/shion_ambient.vpcf" // 紫苑周身特效
+			"particle" "particles/econ/items/dark_willow/dark_willow_chakram_immortal/dark_willow_chakram_immortal_bramble_root.vpcf" // 缠绕特效
+			"particle" "particles/units/heroes/hero_sniper/concussive_grenade_disarm.vpcf" // 缴械特效
+			"particle" "particles/econ/items/drow/drow_arcana/drow_arcana_silenced.vpcf" // 沉默特效
+			"particle" "particles/generic_gameplay/generic_muted.vpcf" // 锁闭特效
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_shion_sounds.vsndevts" // 紫苑音效
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"subBasicRatio"			"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"subExtraRatio"			"0.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"auraRangeRadius"		"99999"
+			}
+		}
+	}
+	"ability_thdots_shion_01"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_01"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel" 						"4"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		//"AbilityCastPoint"			"0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"24 22 20 18"
+		"AbilityManaCost"				"80 100 120 140"
+		//"AbilityCastRange"				"900"
+
+		"precache"
+		{
+			"particle" "models/shion/shion_fx/shion_cast5.vpcf" // 厄土特效
+			"particle" "models/shion/shion_fx/shion_cast5_debuff.vpcf" // 厄土生命值减益特效
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"heal"					"15 30 45 60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"healMoveDistance"		"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"abilityDuring"			"8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ownResistanceBonus"	"-3 -5 -7 -9"
+			}
+			"05" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilRadiusDistance"		"62.5"
+			}
+			"06" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilRangeRadius"		"100"
+			}
+			"07" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilDamage"				"25 36 49 64"
+				"LinkedSpecialBonus"	"special_bonus_unique_shion_03"
+			}
+			"08" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"targetResistanceBonus"	"-3 -5 -7 -9"
+			}
+			"09" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"healthBonusPct"		"3.6 4.0 4.4 4.8"
+			}
+			"10" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilDuring"				"8"
+			}
+			"11" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilLeftDuring"			"6"
+			}
+		}
+	}
+	"ability_thdots_shion_02"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_02"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel" 						"4"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		//"AbilityCastPoint"			"0.4"
+		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		//"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"15 14 13 12"
+		"AbilityManaCost"				"90 100 110 120"
+		//"AbilityCastRange"			"900"
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"particle" "models/shion/shion_fx/shion_cast2.vpcf" // 弹幕特效
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attackSpeedBonus"		"-75 -90 -105 -120"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuNumber"			"5 6 7 8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuDamage"			"60 80 100 120"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuSpeed"			"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuMaxDistance"	"900"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"moveSpeedBonus"		"-10"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"moveSpeedBonusTime"	"2"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"danmakuStartTime"		"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"danmakuHigh"			"125" // 弹幕高度（胸前）
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lockDistance"			"250" // 弹幕锁定距离
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"unlockDistance"		"450" // 弹幕解锁距离
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"danmakuMaxTime"		"10" // 弹幕最大存在时间
+			}
+			"14"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuDamageBonusPercent"	"10" // 弹幕伤害衰减
+			}
+			"15"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuMaxDamageBonusPercent"	"80" // 弹幕最大伤害衰减
+			}
+			"16"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"danmakuMaxDamageBonusDuration"	"2" // 弹幕伤害衰减持续时间
+			}
+			"17"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"passiveInterval"		"0.8" // 万宝槌弹幕播撒间隔
+			}
+		}
+	}
+	"ability_thdots_shion_03"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_03"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		//"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel" 						"4"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		//"AbilityCastPoint"			"0.4"
+		//"AbilityCooldown"				"10 8 6 4"
+		//"AbilityManaCost"				"60 70 80 90"
+		//"AbilityCastRange"			"900"
+
+		"precache"
+		{
+			"particle" "models/shion/shion_fx/shion_cast3_debuff.vpcf" // 光环目标特效
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"auraRangeRadius"		"450 500 550 600"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ownArmorBonus"			"-2 -3 -4 -5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ownMagicResistanceBonus"	"-18 -22 -26 -30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"targetArmorBonus"		"-4 -6 -8 -10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"targetMagicResistanceBonus"	"-40 -50 -60 -70"
+			}
+		}
+	}
+	"ability_thdots_shion_04"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_04"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"CastFilterRejectCaster"		"1"
+		"MaxLevel" 						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0"
+		//"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		//"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"32 28 24"
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"%castRange"
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"particle" "models/shion/shion_fx/shion_cast4.vpcf" // 大招凭依目标屏幕特效
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"invisibleDelayTime"	"1.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hyouiDuring"			"12 15 18"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"castRange"				"300"
+			}
+			"04" // 厄土所需的数据
+			{
+				"var_type"				"FIELD_FLOAT"
+				"oilRangeRadius"		"500 600 700"
+			}
+		}
+	}
+	"ability_thdots_shion_05"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityTextureName"			"custom\shion\ability_thdots_shion_05"
+		"ScriptFile"					"scripts/vscripts/abilities/abilityshion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		//"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		//"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel" 						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		//"AbilityCastPoint"			"0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"			"1"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		//"AbilityCastRange"			"300"
+
+		"precache"
+		{
+			
+		}
+
+		"AbilitySpecial"
+		{
+			
+		}
+	}
+
+	"special_bonus_unique_shion_03"		// + 厄土伤害
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damageBonus"	"32"
+			}
+		}
+	}
+
+	"special_bonus_unique_shion_05"		// 「必然凭依」
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"castRangeBonus"	"400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"probability"		"7"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldownBonus"		"1"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"triggerInterval"	"0.6"
+			}
+		}
+	}
+
+	"special_bonus_unique_shion_06"		// 「最凶最恶」
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"armorBonus"	"-6"
+			}
+		}
+	}
+
+	"special_bonus_unique_shion_07"		// 「贫乏神式污染」
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+
+		}
+	}
+
+	"special_bonus_unique_shion_08"		// 「厄貧負損」
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"probability"	"24"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"0.8"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"cooldown"		"0.8"
+			}
+		}
+	}
+}

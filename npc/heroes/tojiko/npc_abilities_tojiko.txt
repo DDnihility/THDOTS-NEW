@@ -1,0 +1,348 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAAbilities"
+{
+	"ability_thdots_tojikoEx"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"storm_spirit_electric_vortex"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_tojiko_sounds.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_bonus_damage"	"3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_duration"	"12"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"reduce_time"	"10"
+			}
+		}
+	}
+
+	"ability_thdots_tojiko01"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"leshrac_lightning_storm"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityCastPoint"	"0.4"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"	"1.5"
+		"AbilityCooldown"	"10"
+		"AbilityManaCost"	"95 110 125 140"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"700 750 800 850"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"width"	"150"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"length"	"600"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.75"
+				"LinkedSpecialBonus"	"special_bonus_unique_tojiko_1"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"60 120 180 240"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"mana_cost"	"95 110 125 140"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_damage_bonus"	"4"
+			}
+		}
+	}
+
+	"ability_thdots_tojiko02"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"disruptor_thunder_strike"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"	"7 6 5 4"
+		"AbilityManaCost"	"65 80 95 110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"700 750 800 850"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"250"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"60 120 180 240"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"delay"	"0.75"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_bonus"	"35"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_damage_bonus"	"4"
+			}
+		}
+	}
+
+	"ability_thdots_tojiko03"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"zuus_lightning_bolt"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"	"11 10 9 8"
+		"AbilityManaCost"	"75 85 95 105"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"850"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"185"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"80 120 160 200"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"bonus_damage_percentage"	"15 20 25 30"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"6"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"physical_reduce"	"10 15 20 25"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"vision_time"	"0.2"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"vision_radius"	"1000"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_damage_bonus"	"4"
+			}
+		}
+	}
+
+	"ability_thdots_tojiko04"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"zuus_cloud"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate"	"1.2"
+		"AbilityCooldown"	"100 90 80"
+		"AbilityManaCost"	"200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"99999"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"350"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"delay"	"2.5"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"200 325 450"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_damage_bonus"	"40"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"regen_mana"	"200"
+			}
+		}
+	}
+
+	"ability_thdots_tojiko05"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"razor_plasma_field"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitytojiko.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES_STRONG"
+		"MaxLevel"	"1"
+		"HasScepterUpgrade"	"1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"20"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"450"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"5"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"reduce_mgical_resistance"	"-44"
+			}
+		}
+	}
+
+	"special_bonus_unique_tojiko_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"0.6"
+			}
+		}
+	}
+
+	"special_bonus_unique_tojiko_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+
+	"special_bonus_unique_tojiko_3"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"5"
+			}
+		}
+	}
+	"special_bonus_unique_tojiko_4"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+}

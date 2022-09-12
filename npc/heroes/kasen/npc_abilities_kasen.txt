@@ -1,0 +1,1242 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAAbilities"
+{
+	"Version"		"1"
+	"ability_thdots_kasenEx"
+	{
+		"BaseClass"					"ability_lua"
+		"AbilityTextureName"		"custom/kasen/ability_thdots_kasenex_shadow"
+		"ScriptFile"				"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"					"4"
+		"AbilityCooldown"			"40"
+		"AnimationPlaybackRate"		"1"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_5"
+		"AbilityCastPoint"			"0.8"
+		"precache"
+		{
+			"particle"		"models/ibaraki_kasen/ibaraki_kasen2_ambient.vpcf"
+			"particle"		"models/ibaraki_kasen/ibaraki_kasen3_ambient.vpcf"
+		}		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"40"
+			}
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_bonus_ex"	"5 10 15 20"
+			}			
+		}
+	}
+	"ability_thdots_kasenEx_WBC"
+	{
+		"BaseClass"					"ability_lua"
+		"AbilityTextureName"		"custom/kasen/ability_thdots_kasenex_completed"
+		"ScriptFile"				"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"					"1"
+		"precache"
+		{
+			"particle"		"models/ibaraki_kasen/ibaraki_kasen2_ambient.vpcf"
+			"particle"		"models/ibaraki_kasen/ibaraki_kasen3_ambient.vpcf"
+		}		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"lose_health"	"15"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_pct"	"20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"max_heal_pct"	"30"
+			}		
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_reduction"	"-15"
+			}			
+		}
+	}
+
+	"ability_thdots_kasen01"
+	{
+		"BaseClass"					"ability_lua"
+		"AbilityTextureName"		"custom/kasen/ability_thdots_kasen01"
+		"ScriptFile"				"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"			"0.2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"		"1"
+		"AbilityChannelTime"	    "1.0 1.5 1.5 2.0"
+		"AbilityCooldown"			"18 17 16 15"
+		"AbilityManaCost"			"100 120 140 160"
+		"AbilityCastRange"			"325"
+		"precache"
+		{			
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+			"particle"		"particles/heroes/kasen/kasen01.vpcf"
+			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff_g.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1.0 1.5 1.5 2.0"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"325"
+				"LinkedSpecialBonus"  "special_bonus_unique_kasen_2"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration_damage"	"100"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"think_interval"	"0.5"				
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_bonus"	"2"				
+			}			
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"speed"	"175"				
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"chance"	            "20 25 30 35"
+				"LinkedSpecialBonus"	"special_bonus_unique_kasen_3"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_duration"	"15 30 45 60"
+				"LinkedSpecialBonus"	"special_bonus_unique_kasen_1"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_parameter"	"2 3 4 5"				
+			}		
+		}
+	}
+
+	"ability_thdots_kasen02"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityTextureName"	"custom/kasen/ability_thdots_kasen02"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AOERadius"				"%radius"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType" 	"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastPoint"		"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"		"16 14 12 10"
+		"AbilityManaCost"		"90"
+		"AbilityCastRange"		"700"
+		
+		"precache"
+		{			
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+			"particle"		"particles/units/heroes/hero_ursa/ursa_earthshock_rocks.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"Kasen02_OnUpgrade"
+			}	
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"OnKasen02SpellStart"
+				"StoneDamage"	"%stone_damage"
+				"StunDuration"	"%stun_duration"
+				"Radius"		"%radius"
+				"SlowDuration"	"%slow_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Invoker.ChaosMeteor.Cast"
+				"Target"		"CASTER"
+			}
+		}
+		"OnProjectileHitUnit"
+		{			
+			"RunScript"
+			{
+				"Target"		"TARGET"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"OnKasen02ProjectileHitUnit"
+				"StoneDamage"	"%stone_damage"
+				"StunDuration"	"%stun_duration"
+				"Radius"		"%radius"
+				"SlowDuration"	"%slow_duration"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Invoker.ChaosMeteor.Impact"
+				"Target"		"CASTER"
+			}
+			
+			"AttachEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_ursa/ursa_earthshock_rocks.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"TARGET"				
+			}
+		}
+		"Modifiers"
+		{
+			"passive_kasen02"
+			{
+				"Passive"	"1"
+				"IsHidden"				"1"	
+				"OnAttackLanded"
+				{
+					"Random"
+					{
+						"Chance"	"%chance"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"		"scripts/vscripts/abilities/abilitykasen.lua"
+								"Function"			"Kasen02PassiveKnock"
+								"KnockDamage"		"%knock_damage"
+								"KnockbackDuration"	"%knockback_duration"
+								"KnockbackDistance"	"%knockback_distance"
+								"KnockbackHight"	"%knockback_height"
+							}							
+						}
+					}
+				}
+			}
+			"modifier_thdots_kasen02_slow"
+			{
+				"IsDeBuff"		"1"				
+				"IsHidden"				"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_down"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"chance"	"20"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"		"275 300 325 350"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"knock_damage"	"60 100 140 180"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"knockback_duration"	"0.6"				
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"knockback_distance"	"0"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"knockback_height"	"400"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stone_damage"	"100 175 250 325"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.0 1.2 1.4 1.6"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow_down"	"-20 -30 -40 -50"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow_duration"	"3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_cost"	"16"
+			}
+		}
+	}
+
+	"ability_thdots_kasen03"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/kasen/ability_thdots_kasen03"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate"	"1"
+		"AbilityCooldown"	"14"
+		"AbilityManaCost"	"100 120 140 160"
+		"AbilityCastRange"	"1200"
+		"precache"
+		{			
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"			
+			"particle"		"particles/kasen/kasen03/kasen03wave.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"	"OnKasen03SpellStart"	
+				"TARGET"	"POINT"
+			}
+			"LinearProjectile"
+			{
+				"EffectName"		"particles/kasen/kasen03/kasen03wave.vpcf"
+				"MoveSpeed"			"%speed"
+				"StartRadius"		"%radius"
+				"EndRadius"			"%radius"
+				"StartPosition"		"attach_origin"
+				"FixedDistance"		"%range"
+				"TargetTeams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"ProvidesVision"	"1"				
+			}		
+			"FireSound"
+			{
+				"EffectName"	"Hero_Magnataur.ShockWave.Particle"
+				"Target"		"CASTER"
+			}				
+		}
+		"OnProjectileHitUnit"
+		{			
+			"DeleteOnHit"		"0"
+			"RunScript"
+			{
+				"Target"		"TARGET"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"OnKasen03ProjectileHitUnit"
+			}
+		}
+		"Modifiers"
+		{
+			"passive_kasen03"
+			{
+				"Passive"	"1"
+				"IsHidden"				"1"
+				"OnAttacked"
+				{
+					"Random"
+					{
+						"Chance"	"%chance"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"		"scripts/vscripts/abilities/abilitykasen.lua"
+								"Function"			"Kasen03Passive"
+								"KnockDamage"		"%knock_damage"
+								"KnockbackDuration"	"%knockback_duration"
+								"KnockbackDistance"	"%knockback_distance"
+								"KnockbackHight"	"%knockback_height"
+							}
+						}
+					}
+				}
+			}
+			"modifier_thdots_kasen03_slow"
+			{
+				"IsDeBuff"		"1"				
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_down"
+				}
+			}
+
+			//技能触发光环
+			"passive_kasen03_aura"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Aura"					"passive_kasen03_ability"
+				"Aura_Radius"			"99999"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+			}
+			"passive_kasen03_ability"
+			{		
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"	"Kasen03PassiveOnAbility"
+					}
+				}
+			}
+			//伤害范围内光环
+			"passive_kasen03_check_aura"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Aura"					"passive_kasen03_check"
+				"Aura_Radius"			"%aura_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+				"IsHidden"				"1"
+			}
+			"passive_kasen03_check"
+			{			
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"				
+			}
+			"passive_kasen03_banned"
+			{			
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"1"				
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"range"	"1200"
+			}		
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"120"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"speed"	"1200"
+			}	
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"interval_distance"	"150"
+			}			
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"wave_damage"	"70 100 130 160"
+			}		
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"interval_damage"	"50 75 100 125"
+			}		
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"chance"	"20"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"passive_damage"	"60 90 120 150"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"aura_radius"	"600"
+			}
+			"10"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"max_targets"	"3"
+			}
+			"11"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_multiply"	"0.3"
+			}			
+			"12"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1"
+			}
+			"13"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow_down"	"-20"
+			}
+			"14"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_cost"	"20"
+			}
+			"15"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"banned_duration"	"0.3"
+			}
+		}
+	}
+	"ability_thdots_kasen04"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityTextureName"		"custom/kasen/ability_thdots_kasen04"
+		"ScriptFile"				"scripts/vscripts/abilities/abilitykasen.lua"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+		"AbilityCastPoint"			"0.2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"MaxLevel"					"3"
+		"AnimationPlaybackRate"		"1"
+		"AbilityCooldown"			"80 75 70"
+		"AbilityManaCost"			"160"
+		"AbilityCastRange"			"500 550 600"
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+			"particle"					"particles/econ/items/jakiro/jakiro_ti10_immortal/jakiro_ti10_macropyre.vpcf"
+			"particle"					"particles/econ/items/jakiro/jakiro_ti7_immortal_head/jakiro_ti7_immortal_head_ice_path_b.vpcf"
+		}		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_DragonKnight.BreathFire"
+				"Target"			"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"			"OnKasen04Normal"
+				"cast_range"		"%cast_range"
+				"path_radius"		"%path_radius"
+				"duration"			"%duration"
+			}				
+		}	
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"Kasen04_OnUpgrade"
+			}	
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_kasen04normal_debuff_aura"
+			{
+				"Aura"					"modifier_thdots_kasen04normal_debuff"
+				"Aura_Radius"			"%path_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+				"IsHidden"				"1"
+			}
+			"modifier_thdots_kasen04normal_debuff"
+			{				
+				"ThinkInterval"			"0.03"
+				"IsHidden"				"1"
+				"OnIntervalThink"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_thdots_kasen04normal_debuff_duration"
+						"Target"	"TARGET"
+					}					
+				}						
+			}
+			"modifier_thdots_kasen04normal_debuff_duration"
+			{	
+				"IsHidden"				"0"				
+				"Duration"				"%interval_duration"
+				"ThinkInterval"			"%burn_interval"
+				"IsDebuff"		"1"				
+				"IsPurgable"	"1"
+				"OnIntervalThink"
+				{					
+					"RunScript"
+					{
+						"ScriptFile"		"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"			"Kasen04NormalDamage"
+						"Target"			"TARGET"
+					}
+				}			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_down"
+				}					
+			}
+			"modifier_kasen04normal_stun"
+			{
+				"IsDebuff" 				"1"
+				"IsPurgable"	"1"
+				"IsHidden"				"1"
+				"EffectName" 			"particles/units/heroes/hero_jakiro/jakiro_icepath_debuff.vpcf"
+	        	"EffectAttachType" 		"attach_origin"
+	        }
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"80 140 200"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"cast_range"				"500 550 600"					
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"7"
+			}			
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"path_radius"				"150"
+			}			
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"burn_interval"				"0.5 0.5 0.5"
+			}	
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"interval_duration"			"2"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1.5 2.0 2.5"
+			}	
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_down"				    "-20 -30 -40"
+			}
+			
+		}
+	}
+
+	"ability_thdots_kasen04_ex"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityTextureName"		"custom/kasen/ability_thdots_kasen04_ex"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"					"3"
+		"AbilityCooldown"			"60"
+		"AbilityCastPoint"			"0"
+		"AbilityManaCost"			"150"
+		//"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_4"
+		"MaxLevel"					"3"
+		"AnimationPlaybackRate"		"0.5"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+			"particle"		"particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_buff.vpcf"			
+			"particle"		"particles/units/heroes/hero_grimstroke/grimstroke_sfm_ink_swell_reveal.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_thdots_kasen04ex_takedamage"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"OnKasen04ExStart"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Nevermore.Shadowraze"
+				"Target"		"CASTER"
+			}
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"Kasen04_OnUpgrade"
+			}	
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_kasen04ex_takedamage"
+			{	
+				"IsPurgable"			"0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				//"OverrideAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"		"OnKasen04ExTakeDamage"
+						"DamageTaken"	"%attack_damage"
+					}					
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"		"OnKasen04ExEnd"						
+					}
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_grimstroke/grimstroke_sfm_ink_swell_reveal.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"				
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_SkywrathMage.ConcussiveShot.Cast"
+						"Target"		"CASTER"
+					}							
+				}
+				"States"
+				{
+
+					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"	        "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_grimstroke/grimstroke_ink_swell_buff.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"CASTER"				
+					}
+				}
+			}
+			"modifier_thdots_kasen04ex_attack_speed"
+			{
+				"IsDebuff"		"0"				
+				"IsPurgable"	"1"
+				"IsHidden"				"0"
+				"Duration" "%buff_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"			"1"
+				}
+			}
+			"modifier_thdots_kasen04ex_strength"
+			{
+				"IsHidden"				"0"
+				"IsDebuff"		"0"				
+				"IsPurgable"	"1"
+				"Duration" "%buff_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"1"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_duration"	"12"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_speed_bonus"	"15 20 25"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"strength_bonus"	"3 4 5"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"3"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"absorb_pct"	"100"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"400"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1 1.5 2"
+			}
+		}
+	}
+
+	"ability_thdots_kasen04_ex_WBC"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"custom/kasen/ability_thdots_kasen04_ex_WBC"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation"			"Act_DOTA_CAST_ABILITY_4"
+		"IsGrantedByScepter" 		    "1"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+
+			"particle"			"particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_stone_gaze_facing.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/status_effect_medusa_stone_gaze_backup.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"1200"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"175"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"7.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"-50"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stone_duration"			"2.0 2.5 3.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"face_duration"				"2.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"vision_cone"				"85"		// 85 degree cone
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"		        "30"
+			}
+			// Extra
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"bonus_magic_resist"		"50"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"move_speed_bonus"		    "50"
+			}
+			
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Axe.Berserkers_Call"
+				"Target" 		"CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_thdots_kasen04ex_WBC"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"StoneGazeStart"
+			}
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+				"Function"		"Kasen04_OnUpgrade"
+			}	
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_kasen04ex_WBC"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"		
+				"IsPurgable"	"0"		
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf"
+						"EffectAttachType"	"follow_hitloc"
+						"Target"			"TARGET"
+
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+							"TARGET"	"attach_hitloc"
+						}
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed_bonus"
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							//"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"		"scripts/vscripts/abilities/abilitykasen.lua"
+								"Function"			"StoneGaze"
+								"modifier_slow"		"modifier_thdots_kasen04ex_WBC_slow"
+								"modifier_facing"	"modifier_thdots_kasen04ex_WBC_facing"
+							}
+						}
+					}			
+				}
+			}
+			"modifier_thdots_kasen04ex_WBC_slow"
+			{
+				"IsDebuff"	"1"
+
+				"IsPurgable"	"0"
+				"IsHidden"				"0"
+
+				"ThinkInterval"  "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"		"StoneGazeSlow"
+						"modifier_caster"	"modifier_thdots_kasen04ex_WBC"
+						"modifier_target"	"modifier_thdots_kasen04ex_WBC_slow"
+					}
+				}
+
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"%slow"
+				}
+			}
+			"modifier_thdots_kasen04ex_WBC_facing"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+						}						
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_medusa/medusa_stone_gaze_facing.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"
+						{
+							"Center"	"TARGET"
+							//"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+						}
+
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_medusa/medusa_stone_gaze_debuff_stoned.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"
+						{
+							"Center"	"TARGET"
+							//"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+						}
+
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"CASTER"	"attach_origin"
+						}
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitykasen.lua"
+						"Function"		"StoneGazeFacing"
+						"modifier_stone"	"modifier_stone_gaze_stone_datadriven"
+					}
+				}
+			}
+			"modifier_stone_gaze_stone_datadriven"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"IsHidden"				"0"
+				"StatusEffectName" 		"particles/units/heroes/hero_medusa/status_effect_medusa_stone_gaze_backup.vpcf" 	   
+				"StatusEffectPriority"  "10"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					//"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 			"%bonus_magic_resist"
+				    "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"          "%bonus_damage" 
+				}
+			}
+		}
+	}
+
+	"special_bonus_unique_kasen_1"//力量偷取持续时间增加60秒
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"		"60"
+				//"ad_linked_abilities"			"ability_thdots_kasen01"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_2"//猿之手作用范围增加75
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"		"75"
+				//"ad_linked_abilities"			"ability_thdots_kasen01"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_3"//猿之手概率提升15% 
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"		"15"
+				//"ad_linked_abilities"			"ability_thdots_kasen01"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_4"//巨石额外对主目标造成一次伤害，其他单位眩晕
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"2"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_5"//怪力掷击被动附带1倍力量
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"1"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_6"//完全体
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	 "1"
+			}
+		}
+	}
+	"special_bonus_unique_kasen_7"//常态大招和影态大招 伤害类型变为纯粹 伤害变双倍
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	 "1"
+			}
+		}
+	}
+}

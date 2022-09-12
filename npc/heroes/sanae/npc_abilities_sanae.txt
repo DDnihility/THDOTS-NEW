@@ -1,0 +1,279 @@
+"DOTAAbilities"
+{
+	"ability_thdots_sanae01"
+	{
+		"BaseClass"				"ability_lua"
+		"AbilityTextureName"	"touhoutd/thtd_sanae_02"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysanae.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"				"4"
+		"AbilityCastPoint"		"0.1"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"		"15 14 13 12"
+		"AbilityManaCost"		"135 150 165 180"
+		// Stats
+		// ----------------------------------------------------------------
+		"HasScepterUpgrade"		"1"
+		"precache"
+		{
+			// "particle_folder"			"particles/thd2/heroes/mouko"
+			// "soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+			"particle"			"particles/units/heroes/hero_brewmaster/brewmaster_cyclone.vpcf"
+			"particle"			"particles/items_fx/cyclone.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_radius"			"400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"move_slow"				"-40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"40 60 80 100"
+				"LinkedSpecialBonus"	"special_bonus_unique_sanae_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"350 450 550 650"
+				"LinkedSpecialBonus"	"special_bonus_cast_range_150"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"interval"				"1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_bouns"			"50"
+			}
+		}
+	}
+
+	"ability_thdots_sanae02"
+	{
+		"BaseClass"				"ability_lua"
+		"AbilityTextureName"	"touhoutd/thtd_sanae_03"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysanae.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"				"4"
+		"AbilityCastPoint"		"0.1"
+		"HasScepterUpgrade"		"1"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"		"14 13 12 11"
+		"AbilityManaCost"		"90 100 110 120"
+		// Stats
+		// ----------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_creeps.vsndevts"
+			"particle"			"particles/heroes/sanae/ability_sanea_02_effect.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_radius"			"350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.2"
+				"LinkedSpecialBonus"	"special_bonus_unique_sanae_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"80 140 200 260"
+				"LinkedSpecialBonus"	"special_bonus_unique_sanae_4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_range"			"700"
+				"LinkedSpecialBonus"	"special_bonus_cast_range_150"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay_time"			"0.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_bouns"			"50"
+			}
+		}
+	}
+
+	"ability_thdots_sanae03"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_lua"
+		"AbilityTextureName"	"touhoutd/thtd_sanae_01"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysanae.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen"		"1.5 2.5 3.5 4.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen_pct"	"0.15 0.25 0.35 0.45"
+			}
+			// Extra variables
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"global_radius"		"99999"
+			}
+		}
+	}
+
+	"ability_thdots_sanae04"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysanae.lua"
+		"AbilityTextureName"	"touhoutd/thtd_sanae_04"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"		"135 125 115"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"		"200 300 400"
+		"precache"
+		{
+			"soundfile"			"soundevents/thdots_hero_sounds/thdots_sanae_sounds.vsndevts"
+			//"particle_folder"	"particles/thd2/heroes/reimu"
+			"particle"			"particles/heroes/sanae/ability_sanea_04_effect_b.vpcf"
+			"particle"			"particles/heroes/sanae/ability_sanea_04_effect_g.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+		}
+		"AbilitySpecial"
+		{		
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.0 3.5 4.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"radius"			"600"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus：-30五谷丰登冷却
+	//=================================================================================================================
+	"special_bonus_unique_sanae_1"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"-30"
+			}
+		}
+	}
+
+	//=================================================================================================================	
+	// Ability: Special Bonus：+100神风每秒伤害
+	//=================================================================================================================
+	"special_bonus_unique_sanae_2"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"100"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus：+0.8s眩晕时间
+	//=================================================================================================================
+	"special_bonus_unique_sanae_3"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"value"					"0.8"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus：+200开海伤害
+	//=================================================================================================================
+	"special_bonus_unique_sanae_4"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"200"
+			}
+		}
+	}
+}

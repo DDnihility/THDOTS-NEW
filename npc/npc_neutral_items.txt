@@ -1,0 +1,216 @@
+"DOTAAbilities"
+{
+    "item_titan_sliver"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"381"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemPurchasable"				"0"
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_attack_damage"			"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"magic_resistance"			"16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"status_resistance"			"99"
+			}			
+		}
+	}
+	//=================================================================================================================
+	// 蜂皇浆
+	//=================================================================================================================
+	"item_royal_jelly"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"305"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_SUPPRESS_ASSOCIATED_CONSUMABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+			
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemIsNeutralDrop"				"1"
+		"ItemQuality"					"consumable"
+		"ItemPurchasable"				"0"
+		"ItemInitialCharges"			"1"
+		"ItemPermanent"					"0"
+		"IsTempestDoubleClonable"		"0"
+
+		"Model"							"models/props_gameplay/neutral_box.vmdl"
+				
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_regen"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_regen"			"2"
+			}
+		}
+	}
+    //=================================================================================================================
+	// Wind Waker
+	//=================================================================================================================
+	"item_wind_waker"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"610"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0.0"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+		"AbilitySharedCooldown"			"cyclone"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"175"
+        "ItemCost"						"0"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"cyclone;wind waker;ww"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+        "ItemIsNeutralDrop"				"1"
+        "ItemPurchasable"				"0"
+		"IsTempestDoubleClonable"		"0"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"35"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cyclone_duration"		"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_drop_damage"	"50"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tornado_speed"	"360"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Maelstrom
+	//=================================================================================================================
+	"item_maelstrom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"166"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"maelstrom"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemIsNeutralDrop"				"1"
+        "ItemPurchasable"				"0"
+		"IsTempestDoubleClonable"		"0"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"24"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_chance"			"30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_damage"			"140"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_strikes"			"4"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_radius"			"650"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_delay"			"0.25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_cooldown"		"0.2"
+			}
+		}
+	}
+
+}

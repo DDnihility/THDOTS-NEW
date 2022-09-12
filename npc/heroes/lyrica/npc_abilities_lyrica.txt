@@ -1,0 +1,390 @@
+"DOTAAbilities"
+{
+    "ability_thdots_lyrica01"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_meirin_02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE  | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"	"4"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"19 16 13 10"
+		"AbilityManaCost"	"90"
+		"AOERadius"	"250"
+		"AbilityCastRange"	"99999"
+		"precache"
+		{
+			"particle"	"particles/econ/items/omniknight/hammer_ti6_immortal/omniknight_pur_ti6_immortal_hampart_b.vpcf"
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_n.vpcf"
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_lyrica_sounds.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"	"POINT"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+				"Function"	"OnLyrica01SpellStart"
+			}
+			"RunScript"
+			{
+				"Target"	"POINT"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+				"Function"	"OnLyrica01Heal"
+				"heal"	"%heal"
+				"heal_radius"	"%heal_radius"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Voice_Thdots_Cirno.AbilityLyrica01"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal"	"90 135 180 225"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_radius"	"250"
+			}
+		}
+	}
+
+	"ability_thdots_lyrica02"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_meirin_01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"	"4"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"8"
+		"AbilityManaCost"	"90"
+		"AbilityCastRange"	"750"
+		"precache"
+		{
+			"particle"	"particles/econ/items/omniknight/omni_ti8_head/omniknight_repel_buff_ti8_sphere.vpcf"
+			"particle"	"particles/econ/items/omniknight/omni_ti8_head/omniknight_repel_buff_ti8_swoosh.vpcf"
+			"particle"	"particles/econ/items/omniknight/omni_ti8_head/omniknight_repel_buff_ti8_glyph.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"	"TARGET"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+				"Function"	"OnLyrica02SpellStart"
+				"duration"	"%duration"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Voice_Thdots_Cirno.AbilityLyrica02"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_lyrica02_attack"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"	{}
+				"States"	{}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"	"ATTACKER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+						"Function"	"OnLyrica02Attack"
+						"debuff_duration"	"%debuff_duration"
+						"damage"	"%damage"
+						"bonus_int"	"%bonus_int"
+					}
+				}
+			}
+			"modifier_ability_thdots_lyrica02_beattack"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"Target"	"ATTACKER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+						"Function"	"OnLyrica02Beattack"
+						"debuff_duration"	"%debuff_duration"
+						"damage"	"%damage"
+						"bonus_int"	"%bonus_int"
+					}
+				}
+			}
+			"modifier_ability_thdots_lyrica02_debuff"
+			{
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_reduction"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed_reduction"
+				}
+				"States"	{}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"60 90 120 150"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"6"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"bonus_int"	"1.0"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attack_speed_reduction"	"-35"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"movement_speed_reduction"	"-35"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_duration"	"2.0 2.5 3.0 3.5"
+			}
+		}
+	}
+
+	"ability_thdots_lyrica03"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"touhoutd/thtd_lyrica_01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+        "ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+		"MaxLevel"	"4"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"aura_radius"	"900"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"all_state_reduce"	"-4 -6 -8 -10"
+			}
+		}
+	}
+
+	"ability_thdots_lyrica04"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_lyrica_02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"120 110 100"
+		"AbilityManaCost"	"150 150 150"
+		"AbilityCastRange"	"600"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_heavenly_grace_buff.vpcf"
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_omni.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"	"TARGET"
+				"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+				"Function"	"OnLyrica04SpellStart"
+				"duration"	"%duration"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Voice_Thdots_Cirno.AbilityLyrica04"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_lyrica04"
+			{
+				"Duration"	"%duration"
+				"IsBuff"	"1"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-999"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"4.0 4.5 5.0"
+			}
+		}
+	}
+
+	"ability_thdots_lyricaEx"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/star_up"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"	"1"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff_e.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_lyricaEx"
+			{
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"Target"	"UNIT"
+						"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+						"Function"	"OnLyricaExOnkill"
+					}
+				}
+				"Passive"	"1"
+				"IsBuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"0.1"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+						"Function"	"OnLyricaExIntervalThink"
+					}
+				}
+				"ThinkInterval"	"0.1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+			"modifier_ability_thdots_lyricaEx_bonus"
+			{
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilitylyrica.lua"
+						"Function"	"OnLyricaExAttackLanded"
+						"radius"	"%radius"
+					}
+				}
+				"Passive"	"1"
+				"IsBuff"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"300"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_lyrica_3"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"250"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_lyrica_4"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus 三技能额外减少30全属性
+	//=================================================================================================================
+	"special_bonus_unique_lyrica_2"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				        "-30"
+			}
+		}
+	}
+}

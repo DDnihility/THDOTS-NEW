@@ -1,0 +1,339 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"ability_thdots_kisumeEx"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/kisume/ability_thdots_kisume_Ex"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"MaxLevel"	"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kisume_sounds.vsndevts"
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_kisumeEx_passive"	{}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"count"	"4"
+				"LinkedSpecialBonus"	"special_bonus_unique_kisume_4"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1.7"
+			}
+		}
+	}
+
+	"ability_thdots_kisume01"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"ogre_magi_ignite"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate"	"0.4"
+		"AbilityCooldown"	"9 8 7 6"
+		"AbilityManaCost"	"45 55 65 75"
+		"Modifiers"
+		{
+			"modifier_ability_thdots_kisume01_dummy"	{}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"900"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_radius"	"120"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_radius"	"200"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"50 80 110 140"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"think_damage"	"20 30 40 50"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"8"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1.3"
+			}
+		}
+	}
+
+	"ability_thdots_kisume02"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/kisume/ability_thdots_kisume_2"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"	"22 20 18 16"
+		"AbilityManaCost"	"80 90 100 110"
+		"Modifiers"
+		{
+			"modifier_ability_thdots_kisume02_invin"	{}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"400 500 600 700"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"500"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"75 150 225 300"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_bonus"	"2"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"invin_time"	"0.7"
+			}
+		}
+	}
+
+	"ability_thdots_kisume03"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/kisume/ability_thdots_kisume_3"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCooldown"	"14"
+		"AbilityManaCost"	"60 80 100 120"
+		"Modifiers"
+		{
+			"modifier_ability_thdots_kisume03_passive"	{}
+			"modifier_ability_thdots_kisume03_active"	{}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"decrease_damage"	"6 9 12 15"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"60 90 120 150"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"200"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"defence"	"50 100 150 200"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_bonus"	"10"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"7"
+			}
+		}
+	}
+
+	"ability_thdots_kisume04"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/kisume/ability_thdots_kisume_4"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCooldown"	"80 60 40"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"500 750 1000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"450"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"max_health"	"5"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"3"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"regen_amplify"	"-75"
+			}
+		}
+	}
+
+	"ability_thdots_kisume05"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/kisume/ability_thdots_kisume_05_1"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitykisume.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"CastFilterRejectCaster"	"1"
+		"HasScepterUpgrade"			"1"
+		"MaxLevel"	"1"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"	"2"
+		"AbilityManaCost"	"120"
+		"Modifiers"
+		{
+			"modifier_ability_thdots_kisume05_caster"	{}
+			"modifier_ability_thdots_kisume05_target"	{}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cast_range"	"200"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"10"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"cooldown"	"40"
+			}
+		}
+	}
+
+	"special_bonus_unique_kisume_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"500"
+			}
+		}
+	}
+
+	"special_bonus_unique_kisume_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+
+	"special_bonus_unique_kisume_3"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"0.5"
+			}
+		}
+	}
+
+	"special_bonus_unique_kisume_4"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"-2"
+			}
+		}
+	}
+}

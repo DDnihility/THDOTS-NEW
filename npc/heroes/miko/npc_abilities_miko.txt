@@ -1,0 +1,354 @@
+"DOTAAbilities"
+{
+	"ability_thdots_miko01"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_miko01"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"		"1"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"12"
+		"AbilityManaCost"		"100 110 120 130"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"			"300"
+			}
+			"02"
+			{ 
+				"var_type"		"FIELD_FLOAT"
+				"stuntime"		"0.75 1.25 1.75 2.25"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"		"75 150 225 300"
+			}
+			"04"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "disappear_duration"  "1"
+			}
+			"05"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "cast_range"    "600"
+			}
+	    }
+	}   
+
+	     "ability_thdots_miko02" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko02"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilitySpecial"
+		{                        
+            "01"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"bonus"       	"10 12 14 16"
+			}
+			"01"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"speed_bonus"   "10 20 30 40"
+			}
+		}
+	} 
+
+	     "ability_thdots_miko03" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko03"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"		"6 5 4 3"
+		"AbilitySpecial"
+		{
+		    "01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"5"
+			}                                        
+			"02"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"	"40 80 120 160"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"	 	"FIELD_FLOAT"
+				"attack_range"	  "100"
+			}
+			"04"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "magic_armor"  "5"
+			}                   
+		}
+	} 
+
+
+	     "ability_thdots_mikoEx" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_mikoEx"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+		    "01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"800"
+	            "LinkedSpecialBonus"  "special_bonus_unique_miko03"
+			}
+	    }
+	}    
+
+	     "ability_thdots_miko04" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko04"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+		"AbilityCooldown"		"100"
+		"AbilityManaCost"		"200 300 400"
+		"AbilitySpecial"
+		{
+		"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"2"
+			}
+			"02"
+			{ 
+				"var_type"		"FIELD_FLOAT"
+				"radius"		"300 300 300 300"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"heal"		    "8 12 16"
+			}                                          
+			"04"  
+			{                                      
+				"var_type"	 	"FIELD_FLOAT"
+				"arm"		    "9 12 15 18"
+			}   
+			"05"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"stun_duration"	"0.7 1.0 1.3 1.6"
+			}                                                               
+			"06"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"		"100 200 300 400"
+			}                          
+            "07"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"cast_range"	"400 500 600 700"
+			}
+			"08"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "speed_bonus"   "30"
+			}
+			"09"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "speed_duration"  "1"
+			}
+			"10"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "healcount"    "200 300 400"
+			}                       
+		}
+	}    
+
+	     "ability_thdots_mikoWanbao" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_mikoWanbao"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"	"1"
+		"HasScepterUpgrade"	  "1"
+		"AbilityCooldown"		"30"
+		"AbilityManaCost"		"150"
+		"AbilitySpecial"
+		{
+		"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"3"
+			}  
+			"02"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "spell_bonus"    "15" 
+			}
+			"03"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "attack_range"   "50" 
+			}
+			"04"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "speed"         "25"
+			}
+			"05"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "exp"  "15"
+			}                    
+		}
+	}
+
+	     "special_bonus_unique_miko01"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"5"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko02"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"10"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko03"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"400"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko04"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"100"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko05"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"5"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko06"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"150"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko07"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"300"
+         		}
+        	}
+    }
+	   
+	   	"special_bonus_unique_miko08"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"2"
+         		}
+        	}
+    }
+
+
+}	

@@ -1,0 +1,74 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_seiga"
+	{
+		"Ability1"	"ability_thdots_seiga01"
+		"Ability2"	"ability_thdots_seiga02"
+		"Ability3"	"ability_thdots_seiga03"
+		"Ability4"	"ability_thdots_seigaEx"
+		"Ability5"	"ability_thdots_seiga05"
+		"Ability6"	"ability_thdots_seiga04"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_unique_seiga_7"
+		"Ability11"	"special_bonus_exp_boost_15"
+		"Ability12"	"special_bonus_unique_seiga_1"
+		"Ability13"	"special_bonus_unique_seiga_3"
+		"Ability14"	"special_bonus_attack_range_200"
+		"Ability15"	"special_bonus_unique_seiga_4"
+		"Ability16"	"special_bonus_unique_seiga_5"
+		"Ability17"	"special_bonus_unique_seiga_6"
+		"override_hero"	"npc_dota_hero_grimstroke"
+		"Model"	"models/kaku_seiga/kaku_seiga.vmdl"
+		"ModelScale"	"1"
+		"VoiceFile"	""
+		"AttackRange"	"600"
+		"Role"	"Support,Disabler,Escape,LaneSupport"
+		"Rolelevels"	"3,1,3,3"
+		"Complexity"	"2"
+		"AttackAnimationPoint"	"0.4"
+		// 攻击前摇
+		"AttackRate"	"1.7"
+		// 攻击速度
+		"ArmorPhysical"	"0"
+		// 物理护甲
+		"AttackDamageMin"	"30"
+		// 最大攻击力
+		"AttackDamageMax"	"35"
+		// 最小攻击力
+		"AttributeBaseStrength"	"26"
+		// 基础力量
+		"AttributeStrengthGain"	"2.4"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"18"
+		// 基础敏捷
+		"AttributeAgilityGain"	"1.9"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"25"
+		// 基础智力
+		"AttributeIntelligenceGain"	"3.8"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"300"
+		// 基础移动速度
+		"MovementTurnRate"	"2.0"
+		// 转身速度
+		"StatusHealth"	"200"
+		// 基础生命值
+		"StatusHealthRegen"	"0"
+		// 基础生命恢复
+		"StatusMana"	"150"
+		// 基础魔法值
+		"StatusManaRegen"	"0.4"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"AttributePrimary"	"DOTA_ATTRIBUTE_INTELLECT"
+	}
+}

@@ -1,0 +1,87 @@
+"DOTAHeroes"
+{
+"npc_dota_hero_flandre"
+	{
+		"override_hero"	"npc_dota_hero_naga_siren"
+		"AbilityLayout"	"6"
+		"Ability1"	"ability_thdots_flandre01"
+		"Ability2"	"ability_thdots_flandre02"
+		"Ability3"	"ability_thdots_flandre03"
+		"Ability4"	"ability_thdots_flandreEx"
+		
+		"Ability5"		"generic_hidden"		
+		"Ability6"		"ability_thdots_flandre04"
+		"Ability10"		"special_bonus_movement_speed_40"
+		"Ability11"		"special_bonus_hp_300"
+		"Ability12"		"special_bonus_unique_flandre"
+		"Ability13"		"special_bonus_unique_flandre_3"
+		"Ability14"		"special_bonus_all_stats_14"
+		"Ability15"		"special_bonus_unique_flandre_5"
+		"Ability16"		"special_bonus_unique_flandre_4"
+		"Ability17"		"special_bonus_unique_flandre_2"
+
+
+		//"Carry"			"核心"
+		//"Support"			"辅助"
+		//"Nuker"			"爆发"
+		//"Disabler"		"控制"
+		//"Jungler"			"打野"
+		//"Durable"			"耐久"
+		//"Escape"			"逃生"
+		//"LaneSupport"		"对线辅助"
+		//"Pusher"			"推进"
+		//"Initiator"		"先手"
+		//"Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+
+		"Role"				"Carry,Nuker,Jungler"
+		"Rolelevels"		"3,3,3"
+		"Complexity"	"1"
+		
+		"Model"	"models/thd2/flandre/flandre_mmd.vmdl"
+		"ModelScale"	"0.8"
+		"ArmorPhysical"	"1"
+		// 物理护甲
+		"AttackDamageMin"	"41"
+		// 最大攻击力
+		"AttackDamageMax"	"43"
+		// 最小攻击力
+		//"AttackAnimationPoint"	"0.444" //老版本二妹前摇
+		"AttackAnimationPoint"	"0.35"
+		// 攻击前摇
+		"AttackRate"	"1.6"
+		// 攻击速度
+		"AttributeBaseStrength"	"18"
+		// 基础力量
+		"AttributeStrengthGain"	"2.5"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"27"
+		// 基础敏捷
+		"AttributeAgilityGain"	"3.0"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"15"
+		// 基础智力
+		"AttributeIntelligenceGain"	"1.25"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"310"
+		// 基础移动速度
+		"MovementTurnRate"	"3.0"
+		// 转身速度
+		"StatusHealth"	"185"
+		// 基础生命值
+		"StatusHealthRegen"	"3.5"
+		// 基础生命恢复
+		"StatusMana"	"50"
+		// 基础魔法值
+		"StatusManaRegen"	"0.3"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"1200"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+	}
+}

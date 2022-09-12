@@ -1,0 +1,468 @@
+"DOTAAbilities"
+{
+    //add in 2020.3.13 by Sinka
+	"ability_thdots_shou01"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_toramaru_02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		// "AbilityCastPoint"	"0.1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"	"14 12 10 8"
+		"AbilityManaCost"	"80 100 120 140"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_ability_thdots_shou01"
+				"Duration"	"%duration"
+			}
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+				"Function"	"OnShou01SpellStart"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Hero_EarthShaker.Totem"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_shou01"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%resistance_bonus"
+				}
+				"States"	{}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"Shou01AddParticle"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"OnShou01SpellStart"
+					}
+				}
+				"ThinkInterval"	"0.1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"OnShou01AttackLanded"
+						"duration"	"%duration"
+						"armor_bonus"	"%armor_bonus"
+						"resistance_bonus"	"%resistance_bonus"
+						"stun_bonus"	"%stun_bonus"
+						"damage"	"%damage"
+						"toumingdu"	"%toumingdu"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_ability_thdots_shou01"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"OnShou01OnDestroy"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"armor_bonus"	"5 10 15 20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"resistance_bonus"	"5 10 15 20"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_bonus"	"0.25 0.30 0.35 0.40"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"80 125 170 215"
+			}
+		}
+	}
+
+	"ability_thdots_shou02"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_kanako_03_unit"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate"	"1.5"
+		"AOERadius"	"120"
+		// "AbilityCharges"				"2"
+		// "AbilityChargeRestoreTime"		"6 5 4 3"
+		"AbilityCooldown"	"6 5 4 3"
+		"AbilityManaCost"	"35 60 65 80"
+		"AbilityCastRange"	"650"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"Target"	"POINT"
+				"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+				"Function"	"OnShou02SpellStart"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_shou02"
+			{
+				"Passive"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"OnShou02IntervalThink"
+					}
+				}
+				"ThinkInterval"	"0.1"
+			}
+			"modifier_ability_thdots_shou02_light"
+			{
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"Shou02Light"
+						"damage"	"%damage"
+						"radius"	"%radius"
+					}
+				}
+				"ThinkInterval"	"0.03"
+				"Duration"	"10"
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"Shou02Destory"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"65 100 135 170"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"120"
+			}
+		}
+	}
+
+	"ability_thdots_shou03"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_toramaru_01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"HasScepterUpgrade"			"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+		}
+		"Modifiers"
+		{
+			"modifier_ability_thdots_shou03"
+			{
+				"Passive"	"1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"gold_bonus"	"%gold_bonus"
+						"damage"	"%damage"
+						"stun_duration"	"%stun_duration"
+						"radius"	"%radius"
+						"Function"	"Shou03OnKill"
+					}
+					"FireSound"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"hero_sandking.attack"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"Function"	"Shou03Think"
+					}
+				}
+				"ThinkInterval"	"0.1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"gold_bonus"	"3 4 5 6"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"48 72 96 120"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.3 0.45 0.6 0.75"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"250"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"reduce_gold"	"-20"
+				"RequiresScepter"			"1"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"amplify_gold"	"100"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+
+	"ability_thdots_shouEx"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_toramaru_03"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_ability_thdots_shouEx"
+			{
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"regen"	"%regen"
+						"Function"	"ShouExOnSpellStart"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+						"persecond"	"%persecond"
+						"max"	"%max"
+						"Function"	"ShouExThink"
+					}
+				}
+				"ThinkInterval"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"persecond"	"18"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max"	"6"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"regen"	"0.025"
+			}
+		}
+	}
+
+	"ability_thdots_shou04"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"scripts/vscripts/abilities/abilityshou.lua"
+		"AbilityTextureName"	"touhoutd/thtd_eirin_04"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+		"AbilityCooldown"	"120 110 100"
+		"AbilityManaCost"	"200 250 300"
+		"AbilityCastRange"	"550"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"length"	"1100"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"175"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"120 200 280"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun"	"1.5 2.0 2.5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_shou_1"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"value"				"2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+  	"special_bonus_unique_shou_2"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"value"					"34"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_shou_3"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"value"				"-60"
+			}
+		}
+	}
+
+}

@@ -1,0 +1,76 @@
+"DOTAHeroes"
+{
+    "npc_dota_hero_ellen"
+	{
+		"Ability1"	"ability_thdots_ellen01"
+		"Ability2"	"ability_thdots_ellen02"
+		"Ability3"	"ability_thdots_ellen03"
+		"Ability4"	"void_spirit_aether_remnant"
+		"Ability5"	"generic_hidden"
+		"Ability6"	"ability_thdots_ellen04"
+		"Ability7"	"ability_thdots_ellen03_end"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_mana_reduction_11"
+		"Ability11"	"special_bonus_unique_void_spirit_7"
+		"Ability12"	"special_bonus_spell_amplify_15"
+		"Ability13"	"special_bonus_unique_ellen_2"
+		"Ability14"	"special_bonus_cooldown_reduction_25"
+		"Ability15"	"special_bonus_unique_ellen_1"
+		"Ability16"	"special_bonus_unique_ellen_3"
+		"Ability17"	"special_bonus_unique_ellen_4"
+		"override_hero"	"npc_dota_hero_arc_warden"
+		"Model"	"models/ellen/ellen.vmdl"
+        "AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+        "AttackRate"		"1.700000"
+        "AttackAnimationPoint"		"0.300000"
+        "AttackAcquisitionRange"		"800"
+        "ProjectileModel"		"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_base_attack.vpcf"
+        "ProjectileSpeed"		"900"
+		"AbilityLayout"	"6"
+		"VoiceFile"	""
+    	"ModelScale"            "1.1"
+		"DisableWearables"	"1"
+		"Role"	"Carry,Support,Nuker,Disabler,LaneSupport,Pusher"
+		"Rolelevels"	"1,2,1,2,2,1"
+		"Complexity"	"3"
+		"AttackRange"	"665"
+		"MagicalResistance"	"25"
+		"ArmorPhysical"	"-2.1"
+		// 攻击前摇
+		"AttackRate"	"1.7"
+		// 攻击速度
+		"AttackDamageMin"	"15"
+		// 最大攻击力
+		"AttackDamageMax"	"19"
+		// 最小攻击力
+		"AttributeBaseStrength"	"17"
+		// 基础力量
+		"AttributeStrengthGain"	"1.5"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"17"
+		// 基础敏捷
+		"AttributeAgilityGain"	"2.1"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"28"
+		// 基础智力
+		"AttributeIntelligenceGain"	"2.8"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"305"
+		// 基础移动速度
+		"MovementTurnRate"	"0.9"
+		// 转身速度
+		"StatusHealth"	"200"
+		// 基础生命值
+		"StatusHealthRegen"	"0"
+		// 基础生命恢复
+		"StatusMana"	"70"
+		// 基础魔法值
+		"StatusManaRegen"	"1"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		"AttributePrimary"	"DOTA_ATTRIBUTE_INTELLECT"
+	}
+}

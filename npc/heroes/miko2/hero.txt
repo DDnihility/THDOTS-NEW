@@ -1,0 +1,114 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAHeroes"
+{
+	"Version"		"1"
+
+	"npc_dota_hero_miko2"
+	{
+		"override_hero"	"npc_dota_hero_marci"
+		"AbilityLayout"	"7"
+		"Ability1"	"ability_thdots_miko2_1"
+		"Ability2"	"ability_thdots_miko2_2"
+		"Ability3"	"ability_thdots_miko2_3"
+		"Ability4"	"ability_thdots_miko2_Ex"
+		"Ability5"	"generic_hidden"
+		"Ability6"	"ability_thdots_miko2_4"
+		"Ability7"	"generic_hidden"
+		"Ability10"	"special_bonus_magic_resistance_15"
+		"Ability11"	"special_bonus_armor_6"
+		"Ability12"	"special_bonus_mp_regen_10"
+		"Ability13"	"special_bonus_unique_miko2_4"
+		"Ability14"	"special_bonus_unique_miko2_5"
+		"Ability15"	"special_bonus_unique_miko2_6"
+		"Ability16"	"special_bonus_unique_miko2_7"
+		"Ability17"	"special_bonus_unique_miko2_8"
+
+		//"Carry"			"核心"
+		//"Support"			"辅助"
+		//"Nuker"			"爆发"
+		//"Disabler"		"控制"
+		//"Jungler"			"打野"
+		//"Durable"			"耐久"
+		//"Escape"			"逃生"
+		//"LaneSupport"		"对线辅助"
+		//"Pusher"			"推进"
+		//"Initiator"		"先手"
+		//"Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+
+		"Role"	"Carry,Nuker,Disabler,Jungler,Durable,Initiator"
+		"Rolelevels"	"3,3,3,1,2,2"
+		"Complexity"	"2"
+
+		"Model"	"models/miko/miko.vmdl"
+		"ModelScale"	"1"
+		"AttackAnimationPoint"	"0.4"
+		"ArmorPhysical"	"1"
+		// 物理护甲
+		"AttackRate"	"1.7"
+		// 攻击速度
+		"BaseAttackSpeed"		"100"
+		// 基础攻击速度
+		"AttackDamageMin"	"32"
+		// 最大攻击力
+		"AttackDamageMax"	"27"
+		// 最小攻击力
+		"AttributeBaseStrength"	"30"
+		// 基础力量
+		"AttributeStrengthGain"	"3.4"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"16"
+		// 基础敏捷
+		"AttributeAgilityGain"	"1.7"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"28"
+		// 基础智力
+		"AttributeIntelligenceGain"	"2.6"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"320"
+		// 基础移动速度
+		"MovementTurnRate"	"1.2"
+		// 转身速度
+		"StatusHealth"	"220"
+		// 基础生命值
+		"StatusHealthRegen"	"2.0"
+		// 基础生命恢复
+		"StatusMana"	"50"
+		// 基础魔法值
+		"StatusManaRegen"	"0.5"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable2"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable3"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable4"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable5"
+			{
+				"ItemDef"	"0"
+			}
+		}
+		"ItemSlots"	{}
+		
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+	}
+}

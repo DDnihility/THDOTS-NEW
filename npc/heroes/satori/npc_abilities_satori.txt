@@ -1,0 +1,566 @@
+"DOTAAbilities"
+{
+	"Version"		"1"
+	"ability_thdots_satori01"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"scripts/vscripts/abilities/abilitysatori.lua"
+		"AbilityTextureName"		"custom/ability_thdots_satori01"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"		
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_4"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+		"HasScepterUpgrade"			"1"
+		"AbilityManaCost"           "50"
+		"AbilityCastPoint"          "0.1"
+		"AbilityCooldown"           "110 80 50 20"
+		"AbilityCastRange"			"1200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"18.0"
+			}		
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"steal_duration"		"120 160 200 240"
+			}
+		}
+	}
+
+	"ability_thdots_satori01_old"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_satori01"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"		
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_4"
+		"HasScepterUpgrade"			"1"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "50"
+		"AbilityCastPoint"          "0.1"
+		"AbilityCooldown"           "140 100 60 20"
+		"AbilityCastRange"			"1200"
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_rubick.vsndevts"
+			"soundfile"				"soundevents/thdots_hero_sounds/thdots_satori_sounds.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"				"Hero_Rubick.SpellSteal.Cast.Arcana"
+				"Target"					"CASTER"
+			}			
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"Caster"				"CASTER"
+				"ModifierName"			"modifier_thdots_satori01"
+			}			
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_satori01"
+			{	
+				"IsHidden"	"1"									
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"				"OnSatori01SpellStart"
+						"Caster"				"CASTER"
+						"Target"				"TARGET"						
+					}
+				}				
+			}
+			"modifier_thdots_satori01_remove"
+			{
+				"IsHidden"	"1"
+				"RemoveOnDeath"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"%duration"				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"				"OnSatori01SpellEnd"
+					}
+				}
+			}
+			"modifier_thdots_satori01_time_up"
+			{
+				"IsHidden"	"1"
+				"RemoveOnDeath"	"0"
+				"Duration"	"%steal_duration"				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"				"OnSatori01TimeUp"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"18.0"
+			}		
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"steal_duration"		"120 180 240 300"
+			}		
+		}
+    }
+
+	"ability_thdots_satori02"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_satori02"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_2"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"MaxLevel"					"4"		
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "100 115 130 145"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "16 14 12 10"
+		"AbilityCastRange"			"700"	
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"				"particles/items4_fx/nullifier_proj.vpcf"
+			"particle"				"particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"			"Hero_AbyssalUnderlord.DarkRift.Complete"
+				"Target"				"CASTER"
+			}
+			"TrackingProjectile"
+			{
+				"Target"				"TARGET"
+				"EffectName"			"particles/items4_fx/nullifier_proj.vpcf"
+				"Dodgeable"				"0"
+				"ProvidesVision"		"1"
+				"VisionRadius"			"300"
+				"MoveSpeed"				"%move_speed"
+				"SourceAttachment"		"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+		}
+		"OnProjectileHitUnit"
+		{		
+			"DeleteOnHit"				"true"	
+			"RunScript"
+			{	
+				"Target"				"TARGET"
+				"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+				"Function"				"OnSatori02SpellStart"
+				"Duration"				"%duration"
+				"Radius"				"%radius"
+			}			
+		}		
+		"Modifiers"
+		{			
+			"modifier_thdots_satori02"
+			{				
+				"Duration"			"%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsDebuff"			"1"
+				"IsPurgable"		"1"
+				"EffectName"		"particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_movement"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_attackspeed"
+				}
+			}
+			"modifier_thdots_satori02_think"
+			{	
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsDebuff"			"1"
+				"IsPurgable"		"1"
+				"ThinkInterval"	"1"
+				"Duration"		"%duration"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{	
+						"Target"				"TARGET"
+						"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"				"OnSatori02SpellThink"
+						"Duration"				"%duration"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"move_speed"		"2000"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_movement"		"-30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_attackspeed"	"-30"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"300"
+			}
+		}
+		"AbilityDamage"					"90 150 210 270"
+	}
+
+	"ability_thdots_satori03"
+	{
+		"BaseClass"           	    "ability_lua"
+		"ScriptFile"						"scripts/vscripts/abilities/abilitysatori.lua"
+		"AbilityTextureName"		"custom/ability_thdots_satori03"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_1"
+		"MaxLevel"					"4"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "115 130 145 160"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "60 45 30 15"
+		"AbilityCastRange"			"700"
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_num"			"1 2 3 4"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_health"		"900 1000 1100 1200"
+			}			
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_bonus"		"15 30 45 60"
+			}
+		}
+	}
+
+	"ability_thdots_satori04_OLD"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_satori04"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_3"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"MaxLevel"					"3"		
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "120 180 240"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "75 60 45"
+		"AbilityCastRange"			"700"
+		
+		// Stats
+		//----------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/thd2/items/item_zaiezhizhurenxing.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"			"Hero_Warlock.ShadowWordCastGood"
+				"Target"				"TARGET"
+			}
+			"RunScript"
+			{	
+				"Target"				"TARGET"
+				"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+				"Function"				"OnSatori04SpellStart"
+				"Duration"				"%debuff_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_satori04"
+			{
+				"Duration"			"%debuff_duration"
+				"IsDebuff"			"1"
+				"IsHidden"			"1"
+				"IsPurgable"		"1"
+				"EffectName"		"particles/thd2/items/item_zaiezhizhurenxing.vpcf"
+				"EffectAttachType"	"follow_origin"		
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"				"OnSatori04SpellEnd"
+					}
+				}		
+			}
+			"modifier_thdots_satori04_think"
+			{	
+				"IsHidden"					"0"
+				"RemoveOnDeath"				"1"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"ThinkInterval"				"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"	"OnSatori04Think"
+						"Radius"	"%radius"
+					}					
+				}
+			}
+			"modifier_thdots_satori04_bonus_damage"
+			{	
+				"RemoveOnDeath"				"1"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"Duration"					"%bonus_damage_Duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%debuff_bonus_damage"
+				}				
+			}
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"debuff_duration"	"9"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"debuff_bonus_damage"	"14 17 20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"700"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_damage_Duration"	"3"
+			}
+		}
+	}
+
+    "ability_thdots_satori04"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_satori04"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_3"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"					"3"		
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "120 180 240"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "75 60 45"
+		"AbilityCastRange"			"700"
+		
+		// Stats
+		//----------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/thd2/items/item_zaiezhizhurenxing.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+			"particle"				"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"			"Hero_Warlock.ShadowWordCastGood"
+				"Target"				"TARGET"
+			}
+			"RunScript"
+			{	
+				"Target"				"TARGET"
+				"ScriptFile"			"scripts/vscripts/abilities/abilitySatori.lua"
+				"Function"				"OnSatori04SpellStart"
+				"Duration"				"%debuff_duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_satori04_think"
+			{
+				"IsHidden"					"0"
+				"RemoveOnDeath"				"1"
+				"IsDebuff"					"0"
+				"IsPurgable"				"0"
+				"ThinkInterval"				"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilitySatori.lua"
+						"Function"	"OnSatori04Think"						
+					}
+				}
+			}
+			"modifier_thdots_satori04_bonus_damage"
+			{
+				"RemoveOnDeath"				"1"
+				"IsDebuff"					"1"
+				"IsHidden"					"0"
+				"IsPurgable"				"1"
+				"Duration"					"%debuff_duration"
+				"EffectName"		"particles/thd2/items/item_zaiezhizhurenxing.vpcf"
+				"EffectAttachType"	"follow_origin"	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%debuff_bonus_damage"
+				}
+			}
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"debuff_duration"	"3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"debuff_bonus_damage"	"14 17 20"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"700"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"9"
+			}
+		}
+    }
+
+    "special_bonus_unique_satori_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"7"
+			}
+		}
+	}
+	"special_bonus_unique_satori_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"300"
+			}
+		}
+	}
+	"special_bonus_unique_satori_3"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"300"
+			}
+		}
+	}
+	"special_bonus_unique_satori_4"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"0.06"
+			}
+		}
+	}
+}
