@@ -1,0 +1,85 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_rin"
+	{
+		"override_hero"			"npc_dota_hero_abyssal_underlord"
+		"Model"					"models/rin/rin.vmdl"
+		"ModelScale"            "1"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"Ability1"	"ability_thdots_rin01"
+		"Ability2"	"ability_thdots_rin02"
+		"Ability3"	"ability_thdots_rin03"
+		"Ability4"	"ability_thdots_rinEx"
+		"Ability5"	"ability_thdots_rin_wbc"
+		"Ability6"	"ability_thdots_rin04"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_exp_boost_15"
+		"Ability11"	"special_bonus_unique_rin_1"
+		"Ability12"	"special_bonus_cooldown_reduction_15"
+		"Ability13"	"special_bonus_unique_rin_7"
+		"Ability14"	"special_bonus_unique_rin_4"
+		"Ability15"	"special_bonus_unique_rin_3"
+		"Ability16"	"special_bonus_unique_rin_6"
+		"Ability17"	"special_bonus_unique_rin_2"
+		"AbilityLayout"	"6"
+		"VoiceFile" ""
+		"DisableWearables"	"1"
+		"ProjectileSpeed"	"9999"
+		// "Carry"			"核心"
+		// "Support"			"辅助"
+		// "Nuker"			"爆发"
+		// "Disabler"		"控制"
+		// "Jungler"			"打野"
+		// "Durable"			"耐久"
+		// "Escape"			"逃生"
+		// "LaneSupport"		"对线辅助"
+		// "Pusher"			"推进"
+		// "Initiator"		"先手"
+		// "Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+		"Role"	"Carry,Nuker,Disabler,Durable,Escape,Initiator"
+		"Rolelevels"	"3,3,2,2,2,2"
+		"Complexity"	"2"
+		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
+		"AttackRange"	"140"
+		// 攻击距离
+		"ArmorPhysical"	"1"
+		// 基础护甲
+		"AttackRate"	"1.6"
+		// 攻击速度
+		"AttackAnimationPoint"	"0.3"
+		// 攻击前摇
+		"AttackDamageMin"	"33"
+		// 最大攻击力
+		"AttackDamageMax"	"35"
+		// 最小攻击力
+		"AttributeBaseStrength"	"21"
+		// 基础力量
+		"AttributeStrengthGain"	"2.2"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"22"
+		// 基础敏捷
+		"AttributeAgilityGain"	"2.2"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"14"
+		// 基础智力
+		"AttributeIntelligenceGain"	"1.4"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"300"
+		// 基础移动速度
+		"MovementTurnRate"	"1.2"
+		// 转身速度
+		"StatusHealth"	"200"
+		// 基础生命值
+		"StatusHealthRegen"	"1.2"
+		// 基础生命恢复
+		"StatusMana"	"70"
+		// 基础魔法值
+		"StatusManaRegen"	"0.6"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+	}
+}

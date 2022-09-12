@@ -1,0 +1,313 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"ability_thdots_exrumia01"
+	{
+	    "AbilityTextureName"	"custom/ability_thdots_exrumia01"
+	    "BaseClass"	"ability_lua"
+	    "ScriptFile"	"scripts/vscripts/abilities/abilityexrumia.lua"
+	    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityCooldown"	"20"
+		"AbilityManaCost"	"70 80 90 100"
+		"AbilityCastPoint"	"0.3"
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "duration"  "3 4 5 6"
+			}
+			"02"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "evasion"  "25"
+			}
+			"03"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "cast_range"  "450"
+			}
+			"04"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "slow"  "40"
+			}
+        }
+	}
+
+	"ability_thdots_exrumia02"
+	{
+	    "AbilityTextureName"	"custom/ability_thdots_exrumia02"
+	    "BaseClass"	"ability_lua"
+	    "ScriptFile"	"scripts/vscripts/abilities/abilityexrumia.lua"
+	    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCooldown"	"13"
+		"AbilityManaCost"	"60 70 80 90"
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "duration"  "6"
+			}
+			"02"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "attack_speed"  "30 60 90 120"
+			}
+			"03"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "damage"  "40 80 120 160"
+			}
+			"04"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "radio"  "550"
+			}
+			"05"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "attack_angle"  "210"
+			}
+        }
+	}	
+
+	"ability_thdots_exrumia03"
+	{
+	    "AbilityTextureName"	"custom/ability_thdots_exrumia03"
+	    "BaseClass"	"ability_lua"
+	    "ScriptFile"	"scripts/vscripts/abilities/abilityexrumia.lua"
+	    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCooldown"	"20 18 16 14"
+		"AbilityManaCost"	"60 65 70 75"
+		"AbilityCastPoint"	"0.3"
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "duration"  "2"
+			}
+			"02"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "block_constant"  "100"
+			}
+			"03"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "radio"  "500"
+			}
+			"04"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "stuntime"  "2"
+			}
+			"05"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "regen_mana"  "50 70 90 110"
+			}
+			"06"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "break_damage"  "80 160 240 320"
+			}
+        }
+	}
+
+	"ability_thdots_exrumia04"
+	{
+	    "AbilityTextureName"	"custom/ability_thdots_exrumia04"
+	    "BaseClass"	"ability_lua"
+	    "ScriptFile"	"scripts/vscripts/abilities/abilityexrumia.lua"
+	    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"HasScepterUpgrade"	"1"
+		"AbilityCooldown"	"120 105 90"
+		"AbilityManaCost"	"100 150 200"
+		"AbilityCastPoint"	"0.5"
+		"MaxLevel"	"3"
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "duration"  "6"
+			}
+			"02"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "crit"  "300"
+			}
+			"03"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "damage"  "275 400 525"
+			}
+			"04"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "block"  "33"
+			}
+			"05"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "cast_range"  "425"
+			}
+			"06"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "chance"  "14"
+			}
+        }
+	}
+
+	"ability_thdots_exrumiaEx"
+	{
+	    "AbilityTextureName"	"custom/ability_thdots_exrumiaEx"
+	    "BaseClass"	"ability_lua"
+	    "ScriptFile"	"scripts/vscripts/abilities/abilityexrumia.lua"
+	    "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+	    "AbilitySpecial"
+	    {
+			"01"
+			{
+			    "var_type"  "FIELD_FLOAT"
+			    "speed"  "10"
+			}
+        }
+	}
+
+	"special_bonus_unique_exrumia_01"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"10"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_02"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"15"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_03"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"100"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_04"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"25"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_05"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"2"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_06"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"15"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_exrumia_07"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"2"
+         		}
+        	}
+    }
+	   
+	   	"special_bonus_unique_exrumia_08"
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"55"
+         		}
+        	}
+    }
+}

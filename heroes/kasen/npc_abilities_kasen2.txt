@@ -1,0 +1,597 @@
+"DOTAAbilities"
+{
+	"ability_thdots_kasen2_1"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_1"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"		"550 700 850 1000"
+		"AbilityDamage"		"80 160 240 320"
+		"AbilityCastPoint"		"0.15"
+		"AbilityCooldown"		"22 20 18 16"
+		"AbilityManaCost"		"150 140 130 120"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"			"500"
+			}
+			"02"
+			{
+			    "var_type"     "FIELD_FLOAT"
+			    "cast_range"    "550 700 850 1000"
+			}
+			"03"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "stuntime"     "1.5"
+			}
+	    }
+	}
+
+	"ability_thdots_kasen2_2"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_2"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		"0.6"
+		"AbilityManaCost"		"150"
+		"HasScepterUpgrade"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"percent"			"10 20 30 40"
+			}
+			"02"
+			{
+			    "var_type"     "FIELD_FLOAT"
+			    "attackspeed"    "30 40 50 60"
+			}
+			"03"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "duration"     "30"
+			}
+			"04"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "bkbDuration"     "5"
+			}
+			"05"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "stats_bonus"     "0.5"
+			}
+			"06"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "health_regen"     "2"
+			}
+			"07"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "movespeed_bonus_max"     "30"
+			}
+			"08"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "attackRange"     "400"
+			}
+	    }
+	}
+
+	"ability_thdots_kasen2_3"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_3"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_CREEP"
+		"AbilityCastRange"		"425"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"120 100 80 60"
+		"AbilitySpecial"
+		{  
+			"01"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "gold"        "30 40 50 60"
+	            "LinkedSpecialBonus"  "special_bonus_unique_kasen2_1"
+			}
+			"02"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "exp"          "0"
+			}
+	    }
+	} 
+
+	"ability_thdots_kasen2_4"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_4"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCooldown"		"100"
+		"AbilityManaCost"		"100 175 250"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"percent"			"80"
+	            "LinkedSpecialBonus"  "special_bonus_unique_kasen2_5"
+			}
+			"02"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "gold"    "180 240 300"
+			}
+			"03"
+			{
+			    "var_type"     "FIELD_FLOAT"
+			    "damage_percent"  "30"
+			}
+			"04"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "cast_radius"     "4000"
+			}
+	    }
+	}  
+
+		"ability_thdots_kasen2_sEx"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_sEx"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"3"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"percent"			"10 20 30"
+			}
+	    }
+	}
+
+	"ability_thdots_kasen2_s1"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_s1"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"stuntime"			"0.8"
+			}           
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"			"200"
+			}
+	    }
+	}
+
+	"ability_thdots_kasen2_s2"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_s2"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"outgoing_damagePercent"			"150"
+			}           
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"distance"			"600"
+			}
+	    }
+	}
+
+	"ability_thdots_kasen2_s3"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_kasen2_s3"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCastPoint"		"0.6"
+		"AbilityManaCost"		"100"
+		"MaxLevel"	"1"
+	}
+
+	"kasen_dragon_splash_attack"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_dragon_splash_attack"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"outgoing_damagePercent"			"100"
+			}           
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"distance"			"250"
+			}
+	    }
+	}
+
+	"kasen2_toulangaura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen2_toulangaura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"percent"			"30"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}
+	    }
+	}
+
+	"kasen2_huilanaura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen2_huilanaura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"mana_regen"			"2.5"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1000"
+			}
+	    }
+	}
+
+	"kasen2_toulangcrit"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen2_toulangcrit"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"chance"			"20"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"crit_percent"			"200"
+			}           
+	    }
+	}
+
+	"kasen_weird_attack"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_weird_attack"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"slow"			"25"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"1.5"
+			}           
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"atspslow"			"25"
+			} 
+	    }
+	}
+
+	"kasen_magicalResistance_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_magicalResistance_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"magicResistance_percent"			"10"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+	"kasen_armor_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_armor_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"armor_bonus"			"3"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+	"kasen_HPregen_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_HPregen_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"HP_regen"			"5"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+	"kasen_attackspeed_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_attackspeed_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"attackspeed"			"15"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+	"kasen_movespeed_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_movespeed_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"movespeed"			"12"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+	"kasen_HP_bonus_aura"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/kasen_HP_bonus_aura"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitykasen2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"HP_bonus"			"15"
+			}            
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"radius"			"1200"
+			}  
+	    }
+	}
+
+
+
+
+
+
+	     "special_bonus_unique_kasen2_1" //  3技能额外增加125金
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"80"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_2" // +130 1技能伤害
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"130"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_3" //  3技能可以吞远古
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_4" //  -20 吃冰CD
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"20"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_5" //  影华扇+20%继承
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"20"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_6"  //  吃冰双倍获得力量
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_kasen2_7" //  影华扇可以使用主动装备
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1"
+         		}
+        	}
+    }
+	   
+	   	"special_bonus_unique_kasen2_8" //   -50 大招CD
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"50"
+         		}
+        	}
+    }
+
+
+}	

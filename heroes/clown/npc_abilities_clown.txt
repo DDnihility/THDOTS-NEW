@@ -1,0 +1,716 @@
+"DOTAAbilities"
+{
+	"Version"		"1"
+	"ability_thdots_clown01"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_clown01"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AOERadius"					"%radius"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"					"4"
+		"HasScepterUpgrade"			"1"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "75"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "14"
+		"AbilityCastRange"			"1200"
+		"precache"
+		{
+			"particle"				"particles/heroes/clown/clown01.vpcf"
+			"particle"				"particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		}
+
+				
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lina.DragonSlave.FireHair"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/abilities/abilityclown.lua"
+				"Function"	"OnClown01SpellStart"
+				"Target"	"POINT"
+				"Caster"	"CASTER"
+				"radius"	"%radius"
+				"Duration"	"%duration"		
+				"AttractionSpeed"		"%attraction_speed"
+				"speed"			"%speed"
+				"tick_interval"	"%tick_interval"
+				"Damage"		"%damage"
+			}		
+		}		
+		"Modifiers"
+		{				
+			"modifier_thdots_clown01"
+			{				
+				"IsPurgable"		"1"
+				"IsDebuff"			"1"
+				//"OverrideAnimation"	"ACT_DOTA_RUN"		
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_thdots_clown01_lock"
+						"Target" 		"TARGET"
+						"Duration"		"1.8"
+					}
+				}
+			}
+			"modifier_thdots_clown01_lock"
+			{
+				"IsPurgable"		"0"
+				"IsDebuff"			"0"		
+				"IsHidden"	"1"
+				
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"245 280 315 350"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1.5"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attraction_speed"	"5"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"speed"		"900"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.03"
+			}		
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage"	"0"
+			}
+		}
+	}
+
+	"ability_thdots_clown02"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_clown02"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"					"4"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "80 100 120 140"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "15"
+		"AbilityCastRange"			"600"
+		"precache"
+		{
+			"particle"				"particles/heroes/clown/clown01.vpcf"
+			"particle"				"particles/units/heroes/hero_grimstroke/grimstroke_cast2_ground.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_abyssal_underlord.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
+		}
+
+				
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_AbyssalUnderlord.Firestorm.Start"
+				"Target"	"POINT"
+			}
+			// "ApplyModifier"
+			// {
+			// 	"ModifierName"	"modifier_thdots_clown02_target"
+			// 	"Target" 		"TARGET"
+			// 	"Duration"		"%duration"
+			// }	
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/abilities/abilityclown.lua"
+				"Function"	"OnClown02SpellStart"
+				"Duration"	"%duration"
+			}
+		}	
+		"Modifiers"
+		{
+			"modifier_thdots_clown02_target"
+			{
+				"RemoveOnDeath"	"1"
+				"Duration"		"%duration"
+				"IsPurgable"		"0"
+				"IsHidden"		"0"
+			}
+			"modifier_thdots_clown02"
+			{
+				"Duration"			"%duration"				
+				"ThinkInterval"				"0.2"
+				"RemoveOnDeath"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown02SpellThink"
+						"Target"	"TARGET"
+						"Caster"	"CASTER"
+						"OutRadius"	"%out_radius"
+						"InRadius"	"%in_radius"
+						"Damage"	"%damage"
+					}
+				}
+			}
+			"modifier_thdots_clown02_move"
+			{
+				"Duration"			"%duration"				
+				"ThinkInterval"				"0.03"
+				"RemoveOnDeath"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown02SpellUnitMove"
+						"StunDuration"	"%stun_duration"
+						"Damage"	"%damage"
+					}
+				}
+			}
+		}	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"out_radius"	"360"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"in_radius"		"140"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"70 120 170 220"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"6.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.6 1.7 1.8 1.9"
+			}
+		}
+	}
+
+	"ability_thdots_clown03"
+	{
+		"BaseClass"           	    "ability_datadriven"
+		"AbilityBehavior"   	    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityTextureName"		"custom/ability_thdots_clown03"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_1"
+		
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "30 40 50 60"
+		"AbilityCastPoint"          "0.1"
+		"AbilityCooldown"           "14 12 10 8"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+
+			"particle"				"particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"particle"				"particles/heroes/clown/clown03_big.vpcf"
+			"particle"				"particles/heroes/clown/clown03_small.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_doombringer.vsndevts"
+			"particle"				"particles/heroes/clown/clown03_debuff.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_clown03_attack_land"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_EmberSpirit.FireRemnant.Cast"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+				"Function"	"OnClown03SpellStart"
+				"Caster"	"CASTER"
+			}
+		}	
+		"OnUpgrade"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_clown03_effect"
+			}	
+		}
+
+		"Modifiers"
+		{
+			"modifier_clown03_debuff"
+			{
+				"Duration"	"0.1"
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"TargetPoint"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_doom_bringer/doom_loadout.vpcf"
+						"EffectAttachType"	"world_origin"
+						"EffectDurationScale"	"1"
+						"EffectLifeDurationScale"	"1"
+					}
+				}
+			}
+			"modifier_thdots_clown_nomiss"
+			{
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"			"MODIFIER_STATE_VALUE_ENABLED"
+				}	
+			}
+			"modifier_clown03_attack_land"
+			{
+				"Duration"	"%duration"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/heroes/clown/clown03_big.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_attack1"	
+							"CASTER"	"attach_attack1"
+							"CASTER"	"attach_attack1"						
+						}
+					}
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_clown03_debuff"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown03Damage"
+						"Damage"	"%damage"
+						"Target"	"TARGET"
+						"StunDuration"	"%stun_duration"	
+						"Radius"		"%radius"
+						"BaseDamage"	"%base_damage"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_thdots_clown_nomiss"
+					}
+					"RemoveModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_clown03_attack_land"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_DoomBringer.InfernalBlade.Target"
+						"Target"	"CASTER"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"%bonus_attack_range"
+				}
+			}
+			"modifier_clown03_effect"
+			{
+				"RemoveOnDeath"		"0"
+				"IsPurgable"		"0"
+				"IsHidden"			"1"
+				"OnCreated"				
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/heroes/clown/clown03_small.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"Target"	"CASTER"
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_attack1"	
+							"CASTER"	"attach_attack1"
+							"CASTER"	"attach_attack1"												
+						}
+					}
+				}
+			}
+			"modifier_clown03_passive"
+			{
+				"Passive"	"1"
+				"OnAttackLanded"
+				{					
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown03Passive"						
+						"Target"	"TARGET"
+					}
+				}
+			}
+			"modifier_thdots_clown03_passive_debuff"
+			{
+				"IsDebuff"		"1"
+				"ThinkInterval"	"0.5"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"%duration"
+				"OnCreated"				
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/heroes/clown/clown03_debuff.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"	"TARGET"						
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown03SpellThink"
+						"Target"	"TARGET"
+						"ExDamage"	"%ex_damage"
+					}
+				}				
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"11 14 17 20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_attack_range"	"150"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"radius"				"150"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ex_damage"				"4 7 10 13"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_damage"			"35 90 145 200"
+			}
+		}
+	}
+
+	"ability_thdots_clown04"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityTextureName"		"custom/ability_thdots_clown04"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AOERadius"					"%radius"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastAnimation"      "Act_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"					"3"
+		// Stats
+		//----------------------------------------------------------------
+		"AbilityManaCost"           "150"
+		"AbilityCastPoint"          "0.2"
+		"AbilityCooldown"           "100"
+		"AbilityCastRange"			"700"
+		"precache"
+		{	
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_DeathProphet.Silence"
+				"Target"	"POINT"
+			}
+		 	"CreateThinker"
+			{
+				"Target"	"POINT"
+				"ModifierName"	"modifier_thdots_clown04_aura"
+			}		
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+				"Function"	"OnClown04SpellStart"	
+				"Duration"	"%duration"	
+				"Target"	"POINT"
+				"Caster"	"CASTER"				
+			}	
+			"CreateThinker"
+			{
+				"Target"	"POINT"
+				"ModifierName"	"modifier_thdots_clown04_aura02"
+			}	
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_clown04_aura"
+			{
+				"Aura"					"modifier_thdots_clown04_debuff"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Duration"				"%duration"		
+				"IsHidden"			"1"											
+			}
+			"modifier_thdots_clown04_debuff"
+			{
+				"IsDebuff"		"1"				
+				"ThinkInterval"	"%think_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"	"OnClown04SpellThink"
+						"Damage"	"%damage"
+					}
+				}				
+			}
+			"modifier_thdots_clown04_aura02"
+			{	
+				"IsHidden"			"1"
+				"Aura"          	"modifier_thdots_clown04_aura02_debuff"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Duration"			"%duration"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"		"OnClown04StartCheck"
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					}
+				}
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"		"OnClown04ThinkerCheck"
+						"Target"
+						{
+							"Center"  	"TARGET"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO"
+						}
+					}
+				}				
+			}
+			"modifier_thdots_clown04_aura02_debuff"
+			{
+				"IsDebuff"			"1"
+				"IsHidden"			"1"
+				"OnSpentMana"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityclown.lua"
+						"Function"		"OnClown04SpentMana"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"500"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"10"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"think_interval"	"0.5"
+			}	
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"120 200 280"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"mana_multiplier"			"1.0 1.5 2.0"
+			}	
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_clown_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1.6"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_clown_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"0.5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_clown_3"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"900"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_clown_4"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"0.5"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_clown_5"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+}

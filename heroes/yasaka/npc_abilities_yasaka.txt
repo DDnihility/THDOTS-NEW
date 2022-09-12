@@ -1,0 +1,833 @@
+"DOTAAbilities"
+{
+    "ability_thdots_yasakaEx"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_yasakaEx"
+        "ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"800"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_speed_bonus"	"4"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor_bonus"	"1"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"self_bonus"	"3"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_interval"	"3"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"buff_delay"	"3"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_stack"	   "4 6 8 10"
+			} 
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius_bouns"	"400"
+			} 
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_regen_pct"	"2"
+			}
+			"10"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"mana_regen_pct"	"1"
+			}          
+		}
+	}
+
+	"ability_thdots_yasaka01"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"AOERadius"	"%damage_radius"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_1"
+        "AbilityCharges"				"2"
+        "AbilityChargeRestoreTime"		"15"
+		"AbilityCooldown"	"2"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"100 110 120 130"
+		"AbilityCastRange"	"600 700 800 900"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kanako_sounds.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"particle"	"particles/heroes/kanako/ability_kanako_041.vpcf"
+			"particle"	"particles/heroes/kanako/ability_kanako_01_explosion.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Voice_Thdots_Kanako.AbilityKanako01"
+				"Target"	"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_SkywrathMage.Wings"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka01_OnSpellStart"
+				"Target"	"POINT"
+				"Caster"	"CASTER"
+				"DamageRadius"	"%damage_radius"
+				"StunDuration"	"%stun_duration"
+			}
+			
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+				"Function"		"Onyasaka01upgrade"
+				"Caster"	"CASTER"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage_radius"		"175"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"1"
+			}
+		}
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityDamage"	"90 140 190 240"
+	}
+
+	"ability_thdots_yasaka02"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"	"20 18 16 14"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"120 140 160 180"
+		"precache"
+		{
+			"particle"	"particles/heroes/kanako/ability_kanako_02.vpcf"
+			"particle"	"particles/econ/events/fall_major_2015/teleport_end_fallmjr_2015_l.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dark_seer.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka02_OnSpellStart"
+				"Caster"	"CASTER"
+				"radius"	"%radius"
+				"duration"	"%duration"
+				"tick_interval"	"%tick_interval"
+				"icon_name"	"modifier_thdots_yasaka02_icon"
+				"debuff_name"	"modifier_thdots_yasaka02_debuff_inside"
+			}
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+				"Function"		"Onyasaka02upgrade"
+				"Caster"	"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_yasaka02_icon"
+			{
+				"IsHidden"	"0"
+				"IsPurgable"	"0"
+				"IsBuff"	"1"
+			}
+			"modifier_thdots_yasaka02_debuff_inside"
+			{
+				"IsHidden"	"0"
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"285 300 315 330"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"4.5 5.0 5.5 6.0"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.1"
+			}
+		}
+		"AbilityDamage"	"25 35 45 50"
+	}
+
+	"ability_thdots_yasaka03"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka03"
+		"HasScepterUpgrade"			"1"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_3"
+		"AbilityCooldown"	"16 14 12 10"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"100 110 120 130"
+		"AbilityCastRange"	"700"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kanako_sounds.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"	"particles/units/heroes/hero_treant/treant_overgrowth_vine_glow_trail.vpcf"
+			"particle"	"particles/units/heroes/hero_treant/treant_eyesintheforest_f.vpcf"
+			"particle"	"particles/units/heroes/hero_treant/treant_eyesintheforest_f.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dazzle.Weave"
+				"Target"	"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Voice_Thdots_Kanako.AbilityKanako03"
+				"Target"	"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_treant/treant_overgrowth_vine_glow_trail.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"	"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka03_OnSpellStart"
+				"Target"	"TARGET"
+				"Caster"	"CASTER"
+				"heal_amt"	"%heal_amt"
+				"buff_name"	"modifier_thdots_yasaka03_buff"
+				"debuff_name"	"modifier_thdots_yasaka03_debuff"
+				"debuff_duration"	"%debuff_duration"
+			}
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+				"Function"		"Onyasaka03upgrade"
+				"Caster"	"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_yasaka03_buff"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"%buff_duration"
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"EffectName"	"particles/units/heroes/hero_treant/treant_eyesintheforest_f.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%buff_physical_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%buff_magic_armor"
+				}
+			}
+			"modifier_thdots_yasaka03_debuff"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"EffectName"	"particles/units/heroes/hero_treant/treant_eyesintheforest_f.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%debuff_physical_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%debuff_magic_armor"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"heal_amt"	"100 150 200 250"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_physical_armor"	"4 5 6 7"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_magic_armor"	"4 8 12 16"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"buff_duration"	"12"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_physical_armor"	"-4 -5 -6 -7"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_magic_armor"	"-4 -8 -12 -16"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"debuff_duration"	"12"
+			}
+		}
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityDamage"	"100 150 200 250"
+	}
+
+	"ability_thdots_yasaka04_release"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka04"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"            
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"1"
+		"AbilityCooldown"	"45"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kanako_sounds.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"particle"	"particles/heroes/kanako/ability_kanako_04.vpcf"
+			"particle"  "particles/heroes/kanako/ability_kanako_041.vpcf"
+		}	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_percent"	"1"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_range_bonus"	"450 500 550"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_speed_down" 	"-40 -50 -60"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_radius"	"200"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"limit_radius"	"600"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow"	"-15 -20 -25"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow_duration"	"2"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"45"
+			}
+		}
+	}
+	"ability_thdots_yasaka04_quit"
+	{
+		"BaseClass"	"ability_lua"
+		"ScriptFile"	"scripts/vscripts/abilities/abilityyasaka.lua"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka04"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"            
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCooldown"	"0"
+		"MaxLevel"	"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kanako_sounds.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts"
+			"particle"	"particles/heroes/kanako/ability_kanako_04.vpcf"
+		}	
+		"OnSpellStart"
+		{
+		}	
+		"Modifiers"
+		{
+
+		}
+		"AbilitySpecial"
+		{
+
+		}
+	}
+	"ability_thdots_yasaka41"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka41"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"	"35 30 25 20"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"160 200 240 280"
+		"precache"
+		{
+			"particle"	"particles/heroes/kanako/ability_kanako_041.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Voice_Thdots_Kanako.AbilityKanako041"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka41_OnSpellStart"
+				"Caster"	"CASTER"
+				"radius"	"%radius"
+				"duration"	"%duration"
+				"rate"	"%rate"
+				"tick_interval"	"%tick_interval"
+				"stun_duration"	"%stun_duration"
+				"damage_radius"	"%damage_radius"
+				"icon_name"	"modifier_thdots_yasaka41_icon"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_yasaka41_icon"
+			{
+				"Duration"	"%duration"
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+			}
+
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"550 600 650 700"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.1"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"rate"	"5.5 6.0 6.5 7.0"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.5"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_radius"	"175"
+			}
+		}
+		"AbilityDamage"	"90 100 110 120"
+	}
+
+	"ability_thdots_yasaka42"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka42"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"	"16"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityManaCost"	"150"
+		"AbilityCastRange"	"750"
+		"precache"
+		{
+			"particle"	"particles/heroes/kanako/ability_kanako_042.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Oracle.FortunesEnd.Target"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka42_OnSpellStart"
+				"Target"	"POINT"
+				"Caster"	"CASTER"
+				"effect_radius"	"%effect_radius"
+				"duration"	"%duration"
+				"tick_interval"	"%tick_interval"
+				"debuff_name"	"modifier_thdots_yasaka42_debuff"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_yasaka42_debuff"
+			{
+				"IsHidden"	"0"
+				"Duration"	"1.0"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_movement_pct"
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"	"%attack_miss_pct"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"effect_radius"	"375"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"8 10 12 14"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow_movement_pct"	"-15 -20 -25 -30"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_miss_pct"	"30 40 50 60"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.5"
+			}
+		}
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+	}
+
+	"ability_thdots_yasaka43"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_yasaka43"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE "
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityCastPoint"	"0.2"
+		"HasScepterUpgrade"			"1"
+		"AbilityCastAnimation"	"Act_DOTA_CAST_ABILITY_3"
+		"AbilityCooldown"	"18"
+		"AbilityManaCost"	"0"
+		"AbilityCastRange"	"600"
+		// Stats
+		// ----------------------------------------------------------------
+		"AbilityChannelTime"	"30"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_kanako_sounds.vsndevts"
+			"particle"	"particles/units/heroes/hero_treant/treant_overgrowth_vine_glow_trail.vpcf"
+			"particle"	"particles/units/heroes/hero_treant/treant_eyesintheforest_f.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_morphling.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+			"particle"	"particles/heroes/kanako/ability_kanako_043.vpcf"
+			"particle"  "particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_ring_flash_arcana.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Voice_Thdots_Kanako.AbilityKanako043"
+				"Target"	"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Morphling.Replicate"
+				"Target"	"CASTER"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_WitchDoctor.Voodoo_Restoration.Loop"
+				"Target"	"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityYasaka.lua"
+				"Function"	"Yasaka43_OnSpellStart"
+				"Target"	"TARGET"
+				"Caster"	"CASTER"
+				"mana_spend"	"%mana_spend"
+				"aura_name"	"modifier_thdots_yasaka43_aura"
+				"aura_name_2"	"modifier_thdots_yasaka43_wanbaochui_aura"
+				"tick_interval"	"%tick_interval"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_thdots_yasaka43_aura"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"EffectName"	"particles/heroes/kanako/ability_kanako_043.vpcf"
+				//"EffectName"	"particles/econ/items/legion/legion_weapon_voth_domosh/legion_duel_start_ring_flash_arcana.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Aura"	"modifier_thdots_yasaka43_regen"
+				"Aura_Radius"	"%regen_radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"modifier_thdots_yasaka43_wanbaochui_aura"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"IsPurgable"	"1"
+				"Aura"	"modifier_thdots_yasaka43_wanbaochui"
+				"Aura_Radius"	"%regen_radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_BASIC"
+			}
+			"modifier_thdots_yasaka43_regen"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+			}
+			"modifier_thdots_yasaka43_wanbaochui"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen_wanbaochui"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_reduction"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"regen_radius"	"600"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_regen"	"30 45 60 75"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"mana_spend"	"15 20 25 30"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.5"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_reduction"	"-30"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_regen_wanbaochui"	"30"
+			}
+		}
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+	}
+	"special_bonus_unique_yasaka_1"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"1"
+			}
+		}
+	}
+	"special_bonus_unique_yasaka_2"
+	{
+		"BaseClass"	"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"value"	"35"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_yasaka_3"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"-45"
+			}
+		}
+	}
+	"special_bonus_unique_yasaka_4"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"90"
+			}
+		}
+	}
+		"special_bonus_unique_yasaka_5"
+	{
+		"BaseClass"						"special_bonus_undefined"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"3"
+			}
+		}
+	}
+}

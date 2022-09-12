@@ -1,0 +1,343 @@
+"DOTAAbilities"
+{
+	"ability_thdots_miko2_1"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_miko2_1"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko2.lua"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		//"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
+		//"FightRecapLevel"		"1"
+		"AbilityCastRange"		"500"
+		//"AbilityCastPoint"		"0.4"
+		//"AbilityCooldown"		"12"
+		//"AbilityManaCost"		"100 110 120 130"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"			"500"
+			}
+			"02"
+			{ 
+				"var_type"		"FIELD_FLOAT"
+				"mana_cost_percent"		"1.5 2 2.5 3"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"		"30 60 90 120"
+	            "LinkedSpecialBonus"  "special_bonus_unique_miko2_8"
+			}
+			"04"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "search_radius" "500"
+			}
+			"05"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "num"   "1"
+			}
+			"06"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "mana_cost_constant"   "20"
+			}
+			"07"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "mana_damage_percent"    "3"
+			}
+	    }
+	}   
+
+	     "ability_thdots_miko2_2" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko2_2"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko2.lua"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+        "AbilityCastRange"      "400"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"17 16 15 14"
+		"AbilityManaCost"       "100 110 120 130"
+		"AbilitySpecial"
+		{                        
+            "01"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"       	"40 60 80 100"
+			}
+			"02"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"duration"   "2.5 2.5 3 3"
+			}
+			"03"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "cast_range"    "400"
+ 			}
+		}
+	} 
+
+	     "ability_thdots_miko2_3" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko2_3"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko2.lua"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"		"10 9 8 7"
+		"AbilityManaCost"       "50 60 70 80"
+		"AbilitySpecial"
+		{
+		    "01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"5"
+			}                                        
+			"02"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"percent"	"5 10 15 20"
+	            "LinkedSpecialBonus"  "special_bonus_unique_miko2_5"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"	 	"FIELD_FLOAT"
+				"damage"	  "75 120 165 210"
+	            "LinkedSpecialBonus"  "special_bonus_unique_miko2_6"
+			}
+			"04"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "radius"  "400"
+			}
+			"05"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "slow_percent"    "40"
+			}
+			"06"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "slow_duration"    "2"
+			}  
+			"07"
+			{
+			    "var_type"    "FIELD_FLOAT"
+			    "strength_bonus"    "1.6"
+			}                  
+		}
+	} 
+
+
+	     "ability_thdots_miko2_Ex" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko2_Ex"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko2.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"		"120"
+		"MaxLevel"	"1"
+		"AbilitySpecial"
+		{
+		    "01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"1"
+			}
+			"02"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "constant"     "20"
+			}
+			"03"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "shield"        "100"
+			}
+	    }
+	} 
+
+	     "ability_thdots_miko2_4" 
+	{
+		"BaseClass"			    "ability_lua"
+		"AbilityTextureName"	"custom/ability_thdots_miko2_4"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitymiko2.lua"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCooldown"		"100 80 60"
+        "AbilityCastRange"      "600"
+        "AbilityManaCost"   "100 150 200"
+				"HasScepterUpgrade"	"1"
+		"AbilitySpecial"
+		{
+		    "01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"			"3"
+			}                                        
+			"02"  
+			{                                      
+				"var_type"		"FIELD_FLOAT"
+				"damage"	"50"
+	            "LinkedSpecialBonus"  "special_bonus_unique_miko2_4"
+			}                                          
+			"03"  
+			{                                      
+				"var_type"	 	"FIELD_FLOAT"
+				"last_damage"	  "200 300 400"
+			}
+			"04"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "stack_damage"  "60"
+			}
+			"05"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "limit"        "5"
+			}
+			"06"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "wanbao_cool"    "30"
+			}                   
+		}
+	}
+
+	     "special_bonus_unique_miko2_1" // 回蓝+6 暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"6"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_2" // 护甲+6   暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"6"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_3" // 魔抗+15  暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"15"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_4" // 大招弹幕伤害+50
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"50"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_5" // 3技能被动吸血+20
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"20"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_6" // 大招斩杀+300
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"300"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_miko2_7" // 大招无上限
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"300"
+         		}
+        	}
+    }
+	   
+	   	"special_bonus_unique_miko2_8" // 1技能弹幕伤害+130
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"130"
+         		}
+        	}
+    }
+
+
+}	

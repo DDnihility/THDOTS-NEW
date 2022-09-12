@@ -1,0 +1,97 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_sagume"
+	{
+		"override_hero"	"npc_dota_hero_queenofpain"
+		"Model"		"models/sagume/sagume.vmdl"
+		"ModelScale"            "1"
+		"AbilityLayout"	"6"
+		"VoiceFile"	""
+		"Ability1"	"ability_thdots_sagume_1"
+		"Ability2"	"ability_thdots_sagume_2"
+		"Ability3"	"ability_thdots_sagume_3"
+		"Ability4"	"ability_thdots_sagume_Ex"
+		"Ability5"	"generic_hidden"
+		"Ability6"	"ability_thdots_sagume_4"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_strength_12"
+		"Ability11"	"special_bonus_attack_speed_25"
+		"Ability12"	"special_bonus_unique_sagume_3"
+		"Ability13"	"special_bonus_unique_sagume_4"
+		"Ability14"	"special_bonus_unique_sagume_8"
+		"Ability15"	"special_bonus_unique_sagume_6"
+		"Ability16"	"special_bonus_unique_sagume_7"
+		"Ability17"	"special_bonus_unique_sagume_5"
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		// "Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+		"Role"	"Carry,Support,Nuker,Jungler,Escape,Pusher,Initiator"
+		"Rolelevels"	"2,2,2,1,2,1,1"
+		"Complexity"	"2"
+		
+		"AttackRange"	"600"
+		"AttackAnimationPoint"	"0.3"
+		// 攻击前摇
+		"AttackRate"	"1.55"
+		// 攻击速度
+		"ArmorPhysical"	"1.8"
+		// 物理护甲
+		"AttackDamageMin"	"29"
+		// 最大攻击力
+		"AttackDamageMax"	"25"
+		// 最小攻击力
+		"AttributeBaseStrength"	"18"
+		// 基础力量
+		"AttributeStrengthGain"	"1.8"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"17"
+		// 基础敏捷
+		"AttributeAgilityGain"	"2.7"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"30"
+		// 基础智力
+		"AttributeIntelligenceGain"	"2.9"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"305"
+		// 基础移动速度
+		"MovementTurnRate"	"2.0"
+		// 转身速度
+		"StatusHealth"	"200"
+		// 基础生命值
+		"StatusHealthRegen"	"2"
+		// 基础生命恢复
+		"StatusMana"	"20"
+		// 基础魔法值
+		"StatusManaRegen"	"1.5"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"700"
+		// 白天视野大小
+		"VisionNighttimeRange"	"1050"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		"AttachWearables"
+		{
+			"Wearable1"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable2"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable3"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable4"
+			{
+				"ItemDef"	"0"
+			}
+			"Wearable5"
+			{
+				"ItemDef"	"0"
+			}
+		}
+	}
+}

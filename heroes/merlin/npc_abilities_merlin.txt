@@ -1,0 +1,552 @@
+"DOTAAbilities"
+{
+    "ability_thdots_Merlin01"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_merlin01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES"
+		"AbilityCastPoint"	"0.2 0.2 0.2 0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"	"3"
+		"AbilityCooldown"	"11 10 9 8"
+		"AbilityManaCost"	"120"
+		"AbilityCastRange"	"250"
+		"precache"
+		{
+			"soundfile"		"soundevents/voscripts/game_sounds_vo_announcer_dlc_axe.vsndevts"
+			"particle"	    "particles/units/heroes/hero_axe/axe_culling_blade_boost_glow.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+            "particle"      "particles/econ/items/antimage/antimage_ti7_golden/antimage_blink_start_ti7_golden_flame_hot.vpcf"
+            "particle"      "particles/units/heroes/hero_demonartist/demonartist_spiritwalk_buff_start_rope.vpcf"
+            "particle"      "particles/thd2/heroes/merlin/merlin01.vpcf"
+        }
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Voice_Thdots_Merlin.AbilityMerlin01"
+			}
+			"ActOnTargets"
+			{
+				"Target"	"TARGET"
+				"Action"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_merlin01_enemy_datadriven"
+                        "Duration"	"%sneer_time"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_merlin01_enemy_datadriven"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"StatusEffectPriority"	"10"
+				"Properties"	{}
+				"States"	{}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"Merlin01"
+                        "duration"	"%sneer_time"
+					}
+				}
+				"ThinkInterval"	"0.1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"Merlin01End"
+					}
+				}
+				"OverrideAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"sneer_time"	"1.5 2.0 2.5 3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"spell_damage"	"120"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"extra_damage"	"500"
+			}
+		}
+	}
+
+	"ability_thdots_Merlin02"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/ability_thdots_merlin02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType" "SPELL_DISPELLABLE_YES"
+		"AbilityCastPoint"	"0.2 0.2 0.2 0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"	"3"
+		"AbilityCooldown"	"9"
+		"AbilityManaCost"	"35 50 65 80"
+		"AbilityCastRange"	"500"
+		"precache"
+		{
+            "particle"                  "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger.vpcf"
+            "particle"                  "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+
+		}
+		"OnSpellStart"
+		{
+
+			// "FireSound"
+			// {
+			// 	"Target"	"TARGET"
+			// 	"EffectName"	"Voice_Thdots_Merlin.AbilityMerlin02"
+			// }
+            "RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+				"Function"	"Merlin02"
+				"buff_time"	"%buff_time"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_merlin02_debuff"
+			{
+				"EffectName"  "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsBuff"	"0"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%debuff_def"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE"	"%buff_movespeed"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%debuff_def"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%buff_atk"
+				}
+				"States"	{}
+			}
+			"modifier_merlin02_buff"
+			{
+				"EffectName"  "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE_UNIQUE"	"%buff_movespeed"
+					//"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%buff_def"
+					//"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%buff_def"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%buff_atk"
+				}
+				"States"	{}
+			}
+			"modifier_merlin02_debuff_telent"
+			{
+				"EffectName"  "particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%debuff_def"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%debuff_def"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"buff_time"	"9"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"buff_atk"	"15 30 45 60"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"buff_movespeed"	"24"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"debuff_def"	"-4 -6 -8 -10"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"buff_def"	"4 6 8 10"
+			}
+		}
+	}
+
+	"ability_thdots_Merlin03"
+	{
+		"BaseClass"	"ability_lua"
+		"AbilityTextureName"	"touhoutd/thtd_merlin_01"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+        "HasScepterUpgrade"	  "1"
+		"ScriptFile"	"scripts/vscripts/abilities/abilitymerlin.lua"
+		"precache"
+		{
+			"particle"                  "particles/thd2/heroes/merlin/naga_siren_song_aura.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"spell_rate"	"0.22 0.18 0.14 0.10"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"aura_range"	"600"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"spell_rate_merlin_per_str"	"0.25 0.45 0.65 0.85"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"hp_regen"	"3"
+				"LinkedSpecialBonus" "special_bonus_unique_merlin_2"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor"	"0"
+				"LinkedSpecialBonus" "special_bonus_unique_merlin_3"
+                "LinkedSpecialBonusField"	"armor"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"Magical_Resistance"	"0"
+				"LinkedSpecialBonus" "special_bonus_unique_merlin_3"
+                "LinkedSpecialBonusField"	"magic"
+			}
+            "07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_percent"	"3"
+			}
+            "08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow"	"40"
+			}
+            "09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius" "450"
+			}
+            "10"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick"	 "0.2"
+			}
+			"11"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"heal_reduce"	"30"
+			}
+		}
+	}
+
+	"ability_thdots_Merlin04"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/thtd_merlin_02"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType" "SPELL_DISPELLABLE_NO"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"0.3 0.3 0.3 0.3"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"	"2"
+		"AbilityCooldown"	"100 90 80"
+		"AbilityManaCost"	"150 200 250"
+		"AbilityCastRange"	"800"
+		"precache"
+		{
+			"soundfile"	"soundevents/thdots_hero_sounds/thdots_merlin_sounds.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"particle"	"particles/thd2/items/item_frock.vpcf"
+            "particle"  "particles/thd2/heroes/merlin/merlin04_thin.vpcf"
+            "particle"  "particles/thd2/heroes/merlin/merlin04_target.vpcf"
+            "particle"  "particles/thd2/heroes/merlin/merlin04_self.vpcf"
+		}
+		"OnSpellStart"
+		{
+			// "ApplyModifier"
+			// {
+			// 	"Target"	"CASTER"
+			// 	"ModifierName"	"OnMerlin04TakeDamage"
+			// }
+			// "ApplyModifier"
+			// {
+			// 	"Target"	"TARGET"
+			// 	"ModifierName"	"modifier_merlin04_enemy"
+			// }
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+				"Function"	"Merlin04SpellStart"
+				"duration"	"%duration"
+			}
+			// "FireSound"
+			// {
+			// 	"Target"	"CASTER"
+			// 	"EffectName"	"Voice_Thdots_Merlin.AbilityMerlin04"
+			// }
+		}
+		"Modifiers"
+		{
+			"OnMerlin04TakeDamage"
+			{
+				"IsDebuff"	"0"
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"1"
+				"StatusEffectPriority"	"10"
+				"Properties"	{}
+				"States"	{}
+				"OnCreated"	{}
+				"IsBuff"	"0"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"OnMerlin04TakeDamage"
+						"attacker"	"ATTACKER"
+						"caster"	"CASTER"
+						"TakenDamage"	"%attack_damage"
+						"back_factor"	"%back_factor"
+					}
+				}
+				"Duration"	"%duration"
+			}
+			"modifier_merlin04_enemy"
+			{
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"1"
+				"IsDebuff"	"1"
+				"StatusEffectPriority"	"10"
+				"Duration"	"%duration"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"back_factor"	"1.2 1.5 1.8"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"7 8 9"
+			}
+		}
+	}
+
+	"ability_thdots_MerlinEx"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"touhoutd/star_up"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		// "AbilityType"	"DOTA_ABILITY_TYPE_HIDDEN"
+		"MaxLevel"	"1"
+		"Modifiers"
+		{
+			"modifier_MerlinEx_HealthBonus"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"0"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"Target"	"UNIT"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"MerlinExOnCreated"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"+2"
+				}
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"IsPurgable"	"0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"MerlinExOnIntervalThink"
+					}
+				}
+				"ThinkInterval"	"0.1"
+				"States"	{}
+			}
+			"modifier_MerlinEx_AttackBonus"
+			{
+				"IsBuff"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/abilities/abilityMerlin.lua"
+						"Function"	"MerlinExOnattackLanded"
+					}
+				}
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"health_percent_bonus"	"5"
+			}
+		}
+	}
+
+	// =================================================================================================================
+	// Ability: Special Bonus
+	// =================================================================================================================
+	"special_bonus_unique_merlin"
+	{
+		"BaseClass"				"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"1"
+			}
+		}
+	}
+
+	// =================================================================================================================
+	// Ability: Special Bonus 生命恢复速度翻倍
+	// =================================================================================================================
+	"special_bonus_unique_merlin_2"
+	{
+		"BaseClass"				"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"value"	"3"
+			}
+		}
+	}
+
+	// =================================================================================================================
+	// Ability: Special Bonus 增加护甲和魔抗
+	// =================================================================================================================
+	"special_bonus_unique_merlin_3"
+	{
+		"BaseClass"				"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"armor"	"1"
+			}
+            "02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magic"	"2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus 减少大招冷却40秒
+	//=================================================================================================================
+	"special_bonus_unique_merlin_4"
+	{
+		"BaseClass"				"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"				"-40"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Special Bonus
+	//=================================================================================================================
+	"special_bonus_unique_merlin_5"
+	{
+		"BaseClass"				"special_bonus_undefined"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"value"				"1.0"
+			}
+		}
+	}
+ }

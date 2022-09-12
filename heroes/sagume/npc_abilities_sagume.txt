@@ -1,0 +1,273 @@
+"DOTAAbilities"
+{
+	"ability_thdots_sagume_1"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_sagume_1"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysagume.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"		"700"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"14 12 10 8"
+		"AbilityManaCost"		"100"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"80 160 240 320"
+			}
+			"02"
+			{
+				"var_type"      "FIELD_FLOAT"
+				"stuntime"      "0.9 1.2 1.5 1.8"
+				"LinkedSpecialBonus"	"special_bonus_unique_sagume_3"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_ADD"
+			}
+		}
+	}
+
+	"ability_thdots_sagume_2"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_sagume_2"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysagume.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT"
+		"HasScepterUpgrade"			"1"
+		"AbilityCastPoint"		"0.3"
+		"AbilityCooldown"		"17 14 11 8"
+		"AbilityManaCost"		"90"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PHYSICAL"
+		"AbilitySpecial"
+		{       
+			"01"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "radius"      "600"
+			}  
+			"03"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "cast_range"   "500 600 700 800"
+				"LinkedSpecialBonus"	"special_bonus_unique_sagume_6"
+			}
+			"04"
+			{
+					"var_type"			"FIELD_FLOAT"
+					"bounce_duration"			"4"
+			}
+			"05"
+			{
+					"var_type"			"FIELD_FLOAT"
+					"bounce_range"			"300"
+			}
+			"06"
+			{
+					"var_type"			"FIELD_FLOAT"
+					"max_bounce_times"		"1 1 2 2"
+					"LinkedSpecialBonus"	"special_bonus_unique_sagume_5"
+			}
+			"07"
+			{
+					"var_type"			"FIELD_FLOAT"
+					"bounce_decay"			"40"
+			}
+		}
+	}
+
+	"ability_thdots_sagume_3"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_sagume_3"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysagume.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityManaCost"		"13 15 17 19"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"intellect_bonus"			"0.4 0.6 0.8 1"
+				"LinkedSpecialBonus"		"special_bonus_unique_sagume_4"
+				"LinkedSpecialBonusOperation"		"SPECIAL_BONUS_ADD"
+			}
+		}
+	} 
+
+	"ability_thdots_sagume_Ex"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_sagume_Ex"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysagume.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"   "1"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"intellect_bonus"			"2"
+			}       
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"limit"			"800"
+			}
+	    }
+	} 
+
+	"ability_thdots_sagume_4"
+	{
+		"BaseClass"			"ability_lua"
+		"AbilityTextureName"		"custom/ability_thdots_sagume_4"
+		"ScriptFile"			"scripts/vscripts/abilities/abilitysagume.lua"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_BOTH"
+        "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+		"AbilityType"	        "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastRange"		"600"
+		"AbilityCastPoint"		"0.4"
+		"AbilityCooldown"		"120 105 90"
+		"AbilityManaCost"		"200 300 400"
+		"AbilitySpecial"
+		{            
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"			"80 140 200 260"
+			}
+			"02"
+			{
+			    "var_type"      "FIELD_FLOAT"
+			    "stuntime"      "1.5"
+			}
+	    }
+	} 
+
+
+	     "special_bonus_unique_sagume_1" // 力量+12 暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"12"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_2" // 攻速+25   暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"25"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_3" // +1.2秒沉默时间 暂用KV
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1.2"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_4" // 3技能系数+0.4
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"0.4"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_5" // 弹射次数+2
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"2"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_6" // blink距离+300
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"230"
+         		}
+        	}
+    }
+
+	   	"special_bonus_unique_sagume_7" // 闪烁可返回起点
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1"
+         		}
+        	}
+    }
+	   
+	   	"special_bonus_unique_sagume_8" // 3技能纯粹伤害
+    {
+         	"BaseClass"	"special_bonus_undefined"
+         	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+         	"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+         	"AbilitySpecial"
+        	{
+         		"01"
+         		{
+         			"var_type"	"FIELD_FLOAT"
+         			"value"	"1"
+         		}
+        	}
+    }
+
+
+}	

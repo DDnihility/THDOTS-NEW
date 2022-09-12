@@ -1,0 +1,75 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_miyako"
+	{
+		"Ability1"	"ability_thdots_miyako01"
+		"Ability2"	"ability_thdots_miyako02"
+		"Ability3"	"ability_thdots_miyako03"
+		"Ability4"	"ability_thdots_miyako05"
+		"Ability5"	"ability_thdots_miyakoEx"
+		"Ability6"	"ability_thdots_miyako04"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_movement_speed_30"
+		"Ability11"	"special_bonus_unique_miyako_6"
+		"Ability12"	"special_bonus_unique_miyako_5"
+		"Ability13"	"special_bonus_unique_miyako_1"
+		"Ability14"	"special_bonus_attack_damage_40"
+		"Ability15"	"special_bonus_unique_miyako_2"
+		"Ability16"	"special_bonus_reincarnation_300"
+		"Ability17"	"special_bonus_unique_miyako_4"
+		"override_hero"	"npc_dota_hero_undying"
+		//"Model"	"models/fangxiang/fangxiang.vmdl"
+		//"ModelScale"	"3.5"
+		"Model"	"models/miyako/miyiako.vmdl"
+		"VoiceFile"	"nil"
+		"AttackRange"	"150"
+		"Role"	"Carry,Jungler,Durable"
+		"Rolelevels"	"2,1,3"
+		"Complexity"	"1"
+		"AttackAnimationPoint"	"0.3"
+		// 攻击前摇
+		"AttackRate"	"1.7"
+		// 攻击速度
+		"ArmorPhysical"	"2"
+		// 物理护甲
+		"AttackDamageMin"	"45"
+		// 最大攻击力
+		"AttackDamageMax"	"50"
+		// 最小攻击力
+		"AttributeBaseStrength"	"25"
+		// 基础力量
+		"AttributeStrengthGain"	"3.2"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"21"
+		// 基础敏捷
+		"AttributeAgilityGain"	"2.6"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"10"
+		// 基础智力
+		"AttributeIntelligenceGain"	"1.8"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"250"
+		// 基础移动速度
+		"MovementTurnRate"	"2.0"
+		// 转身速度
+		"StatusHealth"	"390"
+		// 基础生命值
+		"StatusHealthRegen"	"2.2"
+		// 基础生命恢复
+		"StatusMana"	"250"
+		// 基础魔法值
+		"StatusManaRegen"	"0.4"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		"Ability7"	"generic_hidden"
+		"Ability8"	"generic_hidden"
+		"Ability9"	"generic_hidden"
+		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
+	}
+}

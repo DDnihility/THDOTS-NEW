@@ -1,0 +1,92 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_Yakasa"
+	{
+		"override_hero"	"npc_dota_hero_zuus"
+		"AbilityLayout"	"6"
+		"Ability1"		"ability_thdots_yasaka01"
+		"Ability2"		"ability_thdots_yasaka02"
+		"Ability3"		"ability_thdots_yasaka03"
+		"Ability4"		"ability_thdots_yasakaEx"
+		"Ability5"		"generic_hidden"		
+		"Ability6"		"ability_thdots_yasaka04_release"
+
+
+		"Ability7"	"ability_thdots_yasaka41"
+		"Ability8"	"ability_thdots_yasaka42"
+		"Ability9"	"ability_thdots_yasaka43"
+		"Ability10"	"ability_thdots_yasaka04_quit"
+		"AbilityTalentStart" "11"
+		"Ability11"		"special_bonus_gold_income_90"
+		"Ability12"		"special_bonus_movement_speed_15"
+		"Ability13"		"special_bonus_unique_yasaka_2"
+		"Ability14"		"special_bonus_magic_resistance_15"
+		"Ability15"		"special_bonus_unique_yasaka_1"
+		"Ability16"		"special_bonus_unique_yasaka_4"
+		"Ability17"		"special_bonus_unique_yasaka_5"
+		"Ability18"		"special_bonus_unique_yasaka_3"
+
+
+		//"Carry"			"核心"
+		//"Support"			"辅助"
+		//"Nuker"			"爆发"
+		//"Disabler"		"控制"
+		//"Jungler"			"打野"
+		//"Durable"			"耐久"
+		//"Escape"			"逃生"
+		//"LaneSupport"		"对线辅助"
+		//"Pusher"			"推进"
+		//"Initiator"		"先手"
+		//"Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+
+		"Role"	"Carry,Support,Disabler,Durable,LaneSupport,Pusher,Initiator"
+		"Rolelevels"	"2,1,2,1,2,3,1"
+		"Complexity"	"3"
+
+		"Model"	"models/thd2/kanako/kanako_mmd.vmdl"
+		"ModelScale"	"0.70000"
+		"ProjectileSpeed"	"2500"
+		"AttackAnimationPoint"	"0.3"
+		// 攻击前摇
+		"AttackRate"	"1.7"
+		// 攻击速度
+		"AttackRange"	"550"
+		// 攻击距离
+		"ArmorPhysical"		"0"
+		// 物理护甲
+		"AttackDamageMin"	"33"
+		// 最大攻击力
+		"AttackDamageMax"	"38"
+		// 最小攻击力
+		"AttributeBaseStrength"	"22"
+		// 基础力量
+		"AttributeStrengthGain"	"3.2"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"18"
+		// 基础敏捷
+		"AttributeAgilityGain"	"1.8"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"20.0"
+		// 基础智力
+		"AttributeIntelligenceGain"	"2.7"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"295"
+		// 基础移动速度
+		"MovementTurnRate"	"2.0"
+		// 转身速度
+		"StatusHealth"	"240"
+		// 基础生命值
+		"StatusHealthRegen"	"2"
+		// 基础生命恢复
+		"StatusMana"	"100"
+		// 基础魔法值
+		"StatusManaRegen"	"2"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+		"HealthBarOffset"	"230"
+	}
+}

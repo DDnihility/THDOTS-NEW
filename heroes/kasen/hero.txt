@@ -1,0 +1,72 @@
+"DOTAHeroes"
+{
+	"npc_dota_hero_kasen"
+	{
+		"override_hero"	"npc_dota_hero_bristleback"
+		"Model"		"models/ibaraki_kasen/ibaraki_kasen_1.vmdl"
+		"AbilityLayout"	"8"
+		"Ability1"	"ability_thdots_kasen01"
+		"Ability2"	"ability_thdots_kasen02"
+		"Ability3"	"ability_thdots_kasen03"
+		"Ability4"	"ability_thdots_kasenEx"
+		"Ability5"	"ability_thdots_kasen04_ex_WBC"
+		"Ability6"	"ability_thdots_kasen04"
+		"Ability7"	"ability_thdots_kasen04_ex"
+		"Ability8"	"ability_thdots_kasenEx_WBC"
+		"Ability9"	"generic_hidden"
+		"Ability10"	"special_bonus_unique_kasen_1"//力量偷取持续时间增加60秒
+		"Ability11"	"special_bonus_exp_boost_15"
+		"Ability12"	"special_bonus_unique_kasen_2"//猿之手作用范围增加95
+		"Ability13"	"special_bonus_unique_kasen_3"//猿之手概率提升15% 
+		"Ability14"	"special_bonus_unique_kasen_4"//投石碎裂将作用主目标并眩晕次目标
+		"Ability15"	"special_bonus_unique_kasen_5"//怪力掷击被动附带1倍力量
+		"Ability16"	"special_bonus_unique_kasen_6"//完全体
+		"Ability17"	"special_bonus_unique_kasen_7"//常态大招和影态大招 伤害类型变为纯粹
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		// "Role"			"Carry,Support,Nuker,Disabler,Jungler,Durable,Escape,LaneSupport,Pusher,Initiator"
+		"Role"	"Carry,Disabler,Jungler,Durable,LaneSupport,Initiator"
+		"Rolelevels"	"3,3,3,3,3,2"
+		"Complexity"	"2"
+		"ModelScale"	"1.03"
+		"AttackRange"	"150"
+		"AttackAnimationPoint"	"0.3"
+		// 攻击前摇
+		"AttackRate"	"1.65"
+		// 攻击速度
+		"ArmorPhysical"	"3"
+		// 物理护甲
+		"AttackDamageMin"	"38"
+		// 最大攻击力
+		"AttackDamageMax"	"43"
+		// 最小攻击力
+		"AttributeBaseStrength"	"22"
+		// 基础力量
+		"AttributeStrengthGain"	"2.5"
+		// 每级增加的力量，力量成长
+		"AttributeBaseAgility"	"19"
+		// 基础敏捷
+		"AttributeAgilityGain"	"2.1"
+		// 每级增加的敏捷，敏捷成长
+		"AttributeBaseIntelligence"	"21"
+		// 基础智力
+		"AttributeIntelligenceGain"	"2.3"
+		// 每级增加的智力，智力成长
+		"MovementSpeed"	"305"
+		// 基础移动速度
+		"MovementTurnRate"	"1.0"
+		// 转身速度
+		"StatusHealth"	"250"
+		// 基础生命值
+		"StatusHealthRegen"	"2.2"
+		// 基础生命恢复
+		"StatusMana"	"100"
+		// 基础魔法值
+		"StatusManaRegen"	"1.5"
+		// 基础魔法恢复
+		"VisionDaytimeRange"	"1050"
+		// 白天视野大小
+		"VisionNighttimeRange"	"700"
+		// 晚上视野大小
+		"DisableWearables"	"1"
+	}
+}
